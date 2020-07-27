@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/Tutorial-Editor/static/css/main.5f361e03.chunk.css",
+    "main.js": "/Tutorial-Editor/static/js/main.d8d7eb1f.chunk.js",
+    "main.js.map": "/Tutorial-Editor/static/js/main.d8d7eb1f.chunk.js.map",
+    "runtime-main.js": "/Tutorial-Editor/static/js/runtime-main.8d25cac9.js",
+    "runtime-main.js.map": "/Tutorial-Editor/static/js/runtime-main.8d25cac9.js.map",
+    "static/js/2.6c8caa0c.chunk.js": "/Tutorial-Editor/static/js/2.6c8caa0c.chunk.js",
+    "static/js/2.6c8caa0c.chunk.js.map": "/Tutorial-Editor/static/js/2.6c8caa0c.chunk.js.map",
+    "index.html": "/Tutorial-Editor/index.html",
+    "precache-manifest.25bc8a25f913623a4c6c7944ca4a7c25.js": "/Tutorial-Editor/precache-manifest.25bc8a25f913623a4c6c7944ca4a7c25.js",
+    "service-worker.js": "/Tutorial-Editor/service-worker.js",
+    "static/css/main.5f361e03.chunk.css.map": "/Tutorial-Editor/static/css/main.5f361e03.chunk.css.map",
+    "static/js/2.6c8caa0c.chunk.js.LICENSE.txt": "/Tutorial-Editor/static/js/2.6c8caa0c.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/Tutorial-Editor/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8d25cac9.js",
+    "static/js/2.6c8caa0c.chunk.js",
+    "static/css/main.5f361e03.chunk.css",
+    "static/js/main.d8d7eb1f.chunk.js"
+  ]
+}
