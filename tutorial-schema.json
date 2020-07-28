@@ -1,0 +1,327 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Tutorial Editor",
+    "$ref": "#/definitions/Tutorial",
+    "definitions": {
+        "Tutorial": {
+            "type": "object",
+            "properties": {
+                "Sections": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Section"
+                    }
+                },
+                "Dialogs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Dialog"
+                    }
+                }
+            },
+            "required": [
+                "Sections",
+                "Dialogs"
+            ]
+        },
+        "Section": {
+            "type": "object",
+            "properties": {
+                "Name": {
+                    "type": "string"
+                },
+                "Activated": {
+                    "type": "boolean"
+                },
+                "Initializer": {
+                    "type": "string"
+                },
+                "Finalizer": {
+                    "type": "string"
+                },
+                "Handlers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/EventHandler"
+                    }
+                }
+            },
+            "required": [
+                "Name",
+                "Activated",
+                "Handlers"
+            ]
+        },
+        "EventHandler": {
+            "type": "object",
+            "properties": {
+                "Category": {
+                    "$ref": "#/definitions/EventCategory"
+                },
+                "Source": {
+                    "type": "string"
+                },
+                "Type": {
+                    "type": "string"
+                },
+                "Filter": {
+                    "type": "string"
+                },
+                "Callback": {
+                    "type": "string"
+                },
+                "Repeated": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "Category",
+                "Type",
+                "Callback",
+                "Repeated"
+            ]
+        },
+        "EventCategory": {
+            "type": "number",
+            "enum": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7,
+                8
+            ]
+        },
+        "Dialog": {
+            "type": "object",
+            "properties": {
+                "Name": {
+                    "type": "string"
+                },
+                "Type": {
+                    "$ref": "#/definitions/DialogType"
+                },
+                "Title": {
+                    "type": "string"
+                },
+                "Content": {
+                    "type": "string"
+                },
+                "Buttons": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Button"
+                    }
+                },
+                "Spotlight": {
+                    "$ref": "#/definitions/Spotlight"
+                },
+                "Anchor": {
+                    "$ref": "#/definitions/AnchorType"
+                },
+                "Questions": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Question"
+                    }
+                },
+                "Handlers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/EventHandler"
+                    }
+                },
+                "DismissBehavior": {
+                    "$ref": "#/definitions/ButtonBehavior"
+                }
+            },
+            "required": [
+                "Name",
+                "Type",
+                "Title",
+                "Content",
+                "Handlers"
+            ],
+            "additionalProperties": false
+        },
+        "DialogType": {
+            "type": "number",
+            "enum": [
+                0,
+                1,
+                2,
+                3
+            ]
+        },
+        "AnchorType": {
+            "type": "number",
+            "enum": [
+                0,
+                1,
+                2,
+                3
+            ]
+        },
+        "Spotlight": {
+            "type": "object",
+            "properties": {
+                "Region": {
+                    "type": "string"
+                },
+                "Subregion": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Region"
+            ]
+        },
+        "Button": {
+            "type": "object",
+            "properties": {
+                "Text": {
+                    "type": "string"
+                },
+                "Style": {
+                    "$ref": "#/definitions/ButtonStyle"
+                },
+                "Behavior": {
+                    "$ref": "#/definitions/ButtonBehavior"
+                },
+                "Handlers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/EventHandler"
+                    }
+                }
+            },
+            "required": [
+                "Text",
+                "Style"
+            ],
+            "additionalProperties": false
+        },
+        "ButtonStyle": {
+            "type": "number",
+            "enum": [
+                0,
+                1,
+                2
+            ]
+        },
+        "ButtonBehavior": {
+            "type": "number",
+            "enum": [
+                0,
+                1,
+                2
+            ]
+        },
+        "Question": {
+            "type": "object",
+            "properties": {
+                "Name": {
+                    "type": "string"
+                },
+                "Subject": {
+                    "type": "string"
+                },
+                "Options": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Option"
+                    }
+                },
+                "Jump": {
+                    "$ref": "#/definitions/Reference"
+                },
+                "Type": {
+                    "$ref": "#/definitions/QuestionType"
+                },
+                "Content": {
+                    "type": "string"
+                },
+                "Limit": {
+                    "type": "number"
+                },
+                "Required": {
+                    "type": "boolean"
+                },
+                "Disabled": {
+                    "type": "boolean"
+                },
+                "Activations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Reference"
+                    }
+                }
+            },
+            "required": [
+                "Subject",
+                "Options",
+                "Type",
+                "Required",
+                "Disabled"
+            ],
+            "additionalProperties": false
+        },
+        "Option": {
+            "type": "object",
+            "properties": {
+                "Disabled": {
+                    "type": "boolean"
+                },
+                "Input": {
+                    "type": "boolean"
+                },
+                "Levels": {
+                    "type": "number"
+                },
+                "Jump": {
+                    "$ref": "#/definitions/Reference"
+                },
+                "Activations": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Reference"
+                    }
+                }
+            },
+            "required": [
+                "Disabled",
+                "Input"
+            ],
+            "additionalProperties": false
+        },
+        "Reference": {
+            "type": "object",
+            "properties": {
+                "Target": {
+                    "type": "string"
+                },
+                "Option": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "Target"
+            ],
+            "additionalProperties": false
+        },
+        "QuestionType": {
+            "type": "number",
+            "enum": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+            ]
+        }
+    }
+}
