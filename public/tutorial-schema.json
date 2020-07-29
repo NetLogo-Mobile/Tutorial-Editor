@@ -48,8 +48,7 @@
             },
             "required": [
                 "Name",
-                "Activated",
-                "Handlers"
+                "Activated"
             ]
         },
         "EventHandler": {
@@ -127,11 +126,18 @@
                         "$ref": "#/definitions/Button"
                     }
                 },
-                "Spotlight": {
-                    "$ref": "#/definitions/Spotlight"
-                },
                 "Anchor": {
                     "$ref": "#/definitions/AnchorType"
+                },
+                "Spotlight": {
+					"oneOf": [
+						{ 
+							"type": "null"
+						},
+						{
+							"$ref": "#/definitions/Spotlight"
+						}
+					]
                 },
                 "Questions": {
                     "type": "array",
@@ -152,9 +158,7 @@
             "required": [
                 "Name",
                 "Type",
-                "Title",
-                "Content",
-                "Handlers"
+                "Content"
             ],
             "additionalProperties": false
         },

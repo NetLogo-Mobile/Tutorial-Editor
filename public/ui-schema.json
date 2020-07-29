@@ -1,1 +1,9 @@
-{}
+{
+	"Dialogs": {
+		"items": {
+			"Content": {
+				"ui:widget": "textarea"
+			}
+		}
+	}
+}
