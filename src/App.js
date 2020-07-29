@@ -4,6 +4,7 @@ import './App.css';
 
 function App() {
   const [schema, setSchema] = useState({});
+  const [uiSchema, setUISchema] = useState({});
   const [formData, setFormData] = useState({});
 
   useEffect(() => {
@@ -11,6 +12,14 @@ function App() {
     .then((res) => res.json())
     .then((data) => {
       setSchema(data);
+    });
+  }, []);
+  
+  useEffect(() => {
+    fetch(`${process.env.PUBLIC_URL}/ui-schema.json`)
+    .then((res) => res.json())
+    .then((data) => {
+      setUISchema(data);
     });
   }, []);
 
@@ -48,6 +57,7 @@ function App() {
     <div className = "App">
       <input type="file" onChange = { uploadFile } />
       <Form schema = { schema }
+			uiSchema = { uiSchema }
             formData = { formData }
             onSubmit = { onSubmit } />
     </div>
