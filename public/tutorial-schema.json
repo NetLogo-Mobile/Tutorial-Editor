@@ -76,8 +76,7 @@
             "required": [
                 "Category",
                 "Type",
-                "Callback",
-                "Repeated"
+                "Callback"
             ]
         },
         "EventCategory": {
@@ -130,14 +129,14 @@
                     "$ref": "#/definitions/AnchorType"
                 },
                 "Spotlight": {
-					"oneOf": [
-						{ 
-							"type": "null"
-						},
-						{
-							"$ref": "#/definitions/Spotlight"
-						}
-					]
+                    "oneOf": [
+                        {
+                            "type": "null"
+                        },
+                        {
+                            "$ref": "#/definitions/Spotlight"
+                        }
+                    ]
                 },
                 "Questions": {
                     "type": "array",
