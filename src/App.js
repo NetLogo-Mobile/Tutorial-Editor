@@ -14,7 +14,7 @@ function App() {
       setSchema(data);
     });
   }, []);
-  
+
   useEffect(() => {
     fetch(`${process.env.PUBLIC_URL}/ui-schema.json`)
     .then((res) => res.json())
@@ -55,9 +55,11 @@ function App() {
 
   return (
     <div className = "App">
-      <input type="file" onChange = { uploadFile } />
+      <input type="file"
+             accept = ".json"
+             onChange = { uploadFile } />
       <Form schema = { schema }
-			uiSchema = { uiSchema }
+            uiSchema = { uiSchema }
             formData = { formData }
             onSubmit = { onSubmit } />
     </div>
