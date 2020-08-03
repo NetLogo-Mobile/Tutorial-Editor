@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Form from "@rjsf/material-ui";
+import Form from "@rjsf/semantic-ui";
 import './App.css';
 
 function App() {

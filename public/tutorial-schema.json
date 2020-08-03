@@ -79,6 +79,24 @@
                 "Callback"
             ]
         },
+        "EventHandler.Button": {
+            "type": "object",
+            "properties": {
+                "Filter": {
+                    "type": "string"
+                },
+                "Callback": {
+                    "type": "string"
+                },
+                "Repeated": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "Type",
+                "Callback"
+            ]
+        },
         "EventCategory": {
             "type": "number",
             "enum": [
@@ -111,7 +129,8 @@
                     "type": "string"
                 },
                 "Type": {
-                    "$ref": "#/definitions/DialogType"
+                    "$ref": "#/definitions/DialogType",
+					"default": 2
                 },
                 "Title": {
                     "type": "string"
@@ -119,29 +138,14 @@
                 "Content": {
                     "type": "string"
                 },
+                "Anchor": {
+                    "$ref": "#/definitions/AnchorType",
+					"default": 1
+                },
                 "Buttons": {
                     "type": "array",
                     "items": {
                         "$ref": "#/definitions/Button"
-                    }
-                },
-                "Anchor": {
-                    "$ref": "#/definitions/AnchorType"
-                },
-                "Spotlight": {
-                    "oneOf": [
-                        {
-                            "type": "null"
-                        },
-                        {
-                            "$ref": "#/definitions/Spotlight"
-                        }
-                    ]
-                },
-                "Questions": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/Question"
                     }
                 },
                 "Handlers": {
@@ -151,7 +155,8 @@
                     }
                 },
                 "DismissBehavior": {
-                    "$ref": "#/definitions/ButtonBehavior"
+                    "$ref": "#/definitions/ButtonBehavior",
+					"default": 1
                 }
             },
             "required": [
@@ -159,7 +164,35 @@
                 "Type",
                 "Content"
             ],
-            "additionalProperties": false
+			"dependencies": {
+				"Anchor": {
+					"oneOf": [
+						{
+							"properties": {
+								"Anchor": { "enum": [ 0 ] },
+								"Spotlight": {
+									"$ref": "#/definitions/Spotlight"
+								}
+ 							}
+						}
+					]
+				},
+				"Type": {
+					"oneOf": [
+						{
+							"properties": {
+								"Type": { "enum": [ 3 ] },
+								"Questions": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/definitions/Question"
+                                    }
+                                }
+ 							}
+						}
+					]
+				}
+			}
         },
         "DialogType": {
             "type": "number",
@@ -212,23 +245,27 @@
                     "type": "string"
                 },
                 "Style": {
-                    "$ref": "#/definitions/ButtonStyle"
+                    "$ref": "#/definitions/ButtonStyle",
+					"default": 0
+                },
+                "Filter": {
+                    "type": "string"
                 },
                 "Behavior": {
-                    "$ref": "#/definitions/ButtonBehavior"
+                    "$ref": "#/definitions/ButtonBehavior",
+					"default": 2
                 },
                 "Handlers": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/definitions/EventHandler"
+                        "$ref": "#/definitions/EventHandler.Button"
                     }
                 }
             },
             "required": [
                 "Text",
                 "Style"
-            ],
-            "additionalProperties": false
+            ]
         },
         "ButtonStyle": {
             "type": "number",
@@ -302,8 +339,26 @@
                 "Type",
                 "Required",
                 "Disabled"
+            ]
+        },
+        "QuestionType": {
+            "type": "number",
+            "enum": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
             ],
-            "additionalProperties": false
+            "enumNames": [
+                "Single",
+                "Multiple",
+                "Text",
+                "Textarea",
+                "Score",
+                "Rank"
+            ]
         },
         "Option": {
             "type": "object",
@@ -330,8 +385,7 @@
             "required": [
                 "Disabled",
                 "Input"
-            ],
-            "additionalProperties": false
+            ]
         },
         "Reference": {
             "type": "object",
@@ -345,26 +399,6 @@
             },
             "required": [
                 "Target"
-            ],
-            "additionalProperties": false
-        },
-        "QuestionType": {
-            "type": "number",
-            "enum": [
-                0,
-                1,
-                2,
-                3,
-                4,
-                5
-            ],
-            "enumNames": [
-                "Single",
-                "Multiple",
-                "Text",
-                "Textarea",
-                "Score",
-                "Rank"
             ]
         }
     }
