@@ -1,0 +1,263 @@
+{
+	"Sections": {
+		"items": {
+			"Name": {
+				"ui:options": {
+					"semantic": {
+						"placeholder": "The unique name of this section. You may later activate or de-activate this section by it."
+					}
+				}
+			},
+			"Activated": {
+				"ui:options": {
+					"semantic": {
+						"toggle": true
+					}
+				}
+			},
+			"Initializer": {
+				"ui:widget": "textarea",
+				"ui:options": {
+					"rows": 2,
+					"placeholder": "NetLogo code here will be executed when the section is being activated. "
+				}
+			},
+			"Finalizer": {
+				"ui:widget": "textarea",
+				"ui:options": {
+					"rows": 2,
+					"placeholder": "NetLogo code here will be executed when the section is being de-activated. "
+				}
+			},
+			"Handlers": {
+				"ui:title": "Handlers attached to the Section",
+				"items": {
+					"Category": {
+						"ui:options": {
+							"semantic": {
+								"selection": true,
+								"placeholder": "Select a Category",
+								"header": "What kind of events it is listening"
+							}
+						}
+					},
+					"Source": {
+						"ui:options": {
+							"semantic": {
+								"placeholder": "Source of the event. For example, if you are listening to events of 'sheep-reproduction' widget, you should type in 'sheep-reproduction' here."
+							}
+						}
+					},
+					"Type": {
+						"ui:options": {
+							"semantic": {
+								"placeholder": "Type of events it is listening. Please look at the documentation for details. "
+							}
+						}
+					},
+					"Filter": {
+						"ui:options": {
+							"semantic": {
+								"placeholder": "A NetLogo reporter to determine whether this event handler will be fired."
+							}
+						}
+					},
+					"Callback": {
+						"ui:widget": "textarea",
+						"ui:options": {
+							"rows": 2,
+							"placeholder": "NetLogo code here will be executed when the conditions are met and the filter returns true. "
+						}
+					},
+					"Repeated": {
+						"ui:options": {
+							"semantic": {
+								"toggle": true
+							}
+						},
+						"ui:help": "If an event handler is not repeated, it will remove itself after the first execution of the callback."
+					},
+					"ui:order": [
+						"Category",
+						"Source",
+						"*"
+					]
+				}
+			}
+		}
+	},
+	"Dialogs": {
+		"items": {
+			"Name": {
+				"ui:options": {
+					"semantic": {
+						"placeholder": "The unique name of this dialog. You may later manipulate this dialog by it."
+					}
+				}
+			},
+			"Title": {
+				"ui:options": {
+					"semantic": {
+						"placeholder": "Title of the dialog. Template syntax is supported."
+					}
+				}
+			},
+			"Content": {
+				"ui:widget": "textarea",
+				"ui:options": {
+					"rows": 2,
+					"placeholder": "Content of the dialog. Template syntax is supported."
+				}
+			},
+			"Type": {
+				"ui:options": {
+					"semantic": {
+						"selection": true,
+						"header": "How the dialog is presented to the user"
+					}
+				}
+			},
+			"Buttons": {
+				"items": {
+					"Text": {
+						"ui:options": {
+							"semantic": {
+								"placeholder": "Label of the button. Template syntax is supported."
+							}
+						}
+					},
+					"Style": {
+						"ui:options": {
+							"semantic": {
+								"selection": true,
+								"header": "What will it looks like"
+							}
+						}
+					},
+					"Filter": {
+						"ui:options": {
+							"semantic": {
+								"placeholder": "A NetLogo reporter to determine whether this button will be displayed."
+							}
+						}
+					},
+					"Handlers": {
+						"ui:title": "Handlers when Clicked",
+						"items": {
+							"Filter": {
+								"ui:options": {
+									"semantic": {
+										"placeholder": "A NetLogo reporter to determine whether this event handler will be fired."
+									}
+								}
+							},
+							"Callback": {
+								"ui:widget": "textarea",
+								"ui:options": {
+									"rows": 2,
+									"placeholder": "NetLogo code here will be executed when the button is clicked and the filter returns true. "
+								}
+							},
+							"Repeated": {
+								"ui:options": {
+									"semantic": {
+										"toggle": true
+									}
+								},
+								"ui:help": "If an event handler is not repeated, it will remove itself after the first execution of the callback."
+							}
+						}
+					},
+					"Behavior": {
+						"ui:options": {
+							"semantic": {
+								"selection": true,
+								"header": "What will happen to the dialog when it is clicked"
+							}
+						}
+					}
+				}
+			},
+			"Handlers": {
+				"ui:title": "Handlers attached to the Dialog",
+				"items": {
+					"Category": {
+						"ui:options": {
+							"semantic": {
+								"selection": true,
+								"placeholder": "Select a Category",
+								"header": "What kind of events it is listening"
+							}
+						}
+					},
+					"Source": {
+						"ui:options": {
+							"semantic": {
+								"placeholder": "Source of the event. For example, if you are listening to events of 'sheep-reproduction' widget, you should type in 'sheep-reproduction' here."
+							}
+						}
+					},
+					"Type": {
+						"ui:options": {
+							"semantic": {
+								"placeholder": "Type of events it is listening. Please look at the documentation for details. "
+							}
+						}
+					},
+					"Filter": {
+						"ui:options": {
+							"semantic": {
+								"placeholder": "A NetLogo reporter to determine whether this event handler will be fired."
+							}
+						}
+					},
+					"Callback": {
+						"ui:widget": "textarea",
+						"ui:options": {
+							"rows": 2,
+							"placeholder": "NetLogo code here will be executed when the conditions are met and the filter returns true. "
+						}
+					},
+					"Repeated": {
+						"ui:options": {
+							"semantic": {
+								"toggle": true
+							}
+						},
+						"ui:help": "If an event handler is not repeated, it will remove itself after the first execution of the callback."
+					},
+					"ui:order": [
+						"Category",
+						"Source",
+						"*"
+					]
+				}
+			},
+			"Anchor": {
+				"ui:options": {
+					"semantic": {
+						"selection": true,
+						"header": "Where the dialog is anchored"
+					}
+				}
+			},
+			"DismissBehavior": {
+				"ui:options": {
+					"semantic": {
+						"selection": true,
+						"header": "What will happen when it is dismissed by the user"
+					}
+				}
+			},
+			"ui:order": [
+				"*",
+				"Anchor",
+				"Spotlight",
+				"Handlers",
+				"Buttons",
+				"Questions",
+				"DismissBehavior"
+			]
+		}
+	}
+}
