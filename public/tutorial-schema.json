@@ -93,7 +93,6 @@
                 }
             },
             "required": [
-                "Type",
                 "Callback"
             ]
         },
@@ -174,6 +173,11 @@
 									"$ref": "#/definitions/Spotlight"
 								}
  							}
+						},
+						{
+							"properties": {
+								"Anchor": { "enum": [ 1, 2, 3 ] }
+ 							}
 						}
 					]
 				},
@@ -188,6 +192,11 @@
                                         "$ref": "#/definitions/Question"
                                     }
                                 }
+ 							}
+						},
+						{
+							"properties": {
+								"Anchor": { "enum": [ 0, 1, 2 ] }
  							}
 						}
 					]
