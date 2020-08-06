@@ -250,9 +250,6 @@
         "Button": {
             "type": "object",
             "properties": {
-                "Text": {
-                    "type": "string"
-                },
                 "Style": {
                     "$ref": "#/definitions/ButtonStyle",
 					"default": 0
@@ -272,21 +269,41 @@
                 }
             },
             "required": [
-                "Text",
                 "Style"
-            ]
+            ],
+			"dependencies": {
+				"Style": {
+					"oneOf": [
+						{
+							"properties": {
+								"Style": { "enum": [ 0, 1, 2 ] },
+								"Text": {
+									"type": "string"
+								},
+ 							}
+						},
+						{
+							"properties": {
+								"Style": { "enum": [ 3 ] }
+ 							}
+						}
+					]
+				}
+			}
         },
         "ButtonStyle": {
             "type": "number",
             "enum": [
                 0,
                 1,
-                2
+                2,
+				3
             ],
             "enumNames": [
-                "Default",
+                "Standard",
                 "Secondary",
-                "Option"
+                "Option",
+                "Default"
             ]
         },
         "ButtonBehavior": {

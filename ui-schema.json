@@ -175,7 +175,12 @@
 								"header": "What will happen to the dialog when it is clicked"
 							}
 						}
-					}
+					},
+					"ui:order": [
+						"Style",
+						"Text",
+						"*"
+					]
 				}
 			},
 			"Handlers": {
