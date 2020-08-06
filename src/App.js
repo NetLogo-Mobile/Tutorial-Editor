@@ -3,6 +3,7 @@ import Form from "@rjsf/semantic-ui";
 import './App.css';
 
 function App() {
+  const [selectFile, setSelectFile] = useState(null);
   const [schema, setSchema] = useState({});
   const [uiSchema, setUISchema] = useState({});
   const [formData, setFormData] = useState({});
@@ -37,8 +38,15 @@ function App() {
     download.remove();
   }
 
-  const uploadFile = ({ target: { files } }) => {
-    const file = files[0];
+  const onFileChange = ({ target: { files } }) => {
+    setSelectFile(files[0]);
+  }
+
+  const uploadFile = () => {
+    if (!selectFile) {
+      return
+    }
+
     const reader = new FileReader();
 
     reader.onload = (event) => {
@@ -50,14 +58,17 @@ function App() {
       }
     }
 
-    reader.readAsText(file);
+    reader.readAsText(selectFile);
   }
 
   return (
     <div className = "App">
       <input type="file"
              accept = ".json"
-             onChange = { uploadFile } />
+             onChange = { onFileChange } />
+      <button onClick = { uploadFile }>
+        Upload
+      </button>
       <Form schema = { schema }
             uiSchema = { uiSchema }
             formData = { formData }
