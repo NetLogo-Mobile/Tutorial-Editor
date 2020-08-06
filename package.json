@@ -63,12 +63,10 @@
   },
   "lint-staged": {
     "*.+(js|jsx)": [
-      "eslint --fix",
-      "git add"
+      "eslint --fix"
     ],
     "*.{md,json,css,html}": [
-      "prettier --trailing-comma all --single-quote --write",
-      "git add"
+      "prettier --single-quote --write"
     ]
   }
 }
