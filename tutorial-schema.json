@@ -279,7 +279,7 @@
 								"Style": { "enum": [ 0, 1, 2 ] },
 								"Text": {
 									"type": "string"
-								},
+								}
  							}
 						},
 						{
