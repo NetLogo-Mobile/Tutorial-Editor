@@ -26,7 +26,7 @@ function App() {
 
   const downloadFormData = (form) => {
     const dataStr = `data:text/json;charset=utf-8, ${encodeURIComponent(
-      JSON.stringify(form, 0, 2)
+      JSON.stringify(form, 0, 2),
     )}`;
     const download = document.createElement('a');
     download.setAttribute('href', dataStr);

@@ -65,8 +65,8 @@
     "*.+(js|jsx)": [
       "eslint --fix"
     ],
-    "*.{md,json,css,html}": [
-      "prettier --single-quote --write"
+    "*.{js|jsx,md,json,css,html}": [
+      "prettier --trailing-comma all --single-quote --write"
     ]
   }
 }
