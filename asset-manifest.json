@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/Tutorial-Editor/static/css/main.b8680fed.chunk.css",
-    "main.js": "/Tutorial-Editor/static/js/main.e07db54f.chunk.js",
-    "main.js.map": "/Tutorial-Editor/static/js/main.e07db54f.chunk.js.map",
+    "main.js": "/Tutorial-Editor/static/js/main.1f3a978c.chunk.js",
+    "main.js.map": "/Tutorial-Editor/static/js/main.1f3a978c.chunk.js.map",
     "runtime-main.js": "/Tutorial-Editor/static/js/runtime-main.8d25cac9.js",
     "runtime-main.js.map": "/Tutorial-Editor/static/js/runtime-main.8d25cac9.js.map",
     "static/css/2.50e765de.chunk.css": "/Tutorial-Editor/static/css/2.50e765de.chunk.css",
     "static/js/2.55238574.chunk.js": "/Tutorial-Editor/static/js/2.55238574.chunk.js",
     "static/js/2.55238574.chunk.js.map": "/Tutorial-Editor/static/js/2.55238574.chunk.js.map",
     "index.html": "/Tutorial-Editor/index.html",
-    "precache-manifest.e5e1e2ed0a11e6a12dcb04988383eda1.js": "/Tutorial-Editor/precache-manifest.e5e1e2ed0a11e6a12dcb04988383eda1.js",
+    "precache-manifest.34bd8af3a67434402356d8dedced2ae3.js": "/Tutorial-Editor/precache-manifest.34bd8af3a67434402356d8dedced2ae3.js",
     "service-worker.js": "/Tutorial-Editor/service-worker.js",
     "static/css/2.50e765de.chunk.css.map": "/Tutorial-Editor/static/css/2.50e765de.chunk.css.map",
     "static/css/main.b8680fed.chunk.css.map": "/Tutorial-Editor/static/css/main.b8680fed.chunk.css.map",
@@ -21,6 +21,6 @@
     "static/css/2.50e765de.chunk.css",
     "static/js/2.55238574.chunk.js",
     "static/css/main.b8680fed.chunk.css",
-    "static/js/main.e07db54f.chunk.js"
+    "static/js/main.1f3a978c.chunk.js"
   ]
 }
