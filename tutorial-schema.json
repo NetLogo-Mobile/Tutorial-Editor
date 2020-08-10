@@ -1,431 +1,338 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "title": "Tutorial Editor",
-    "$ref": "#/definitions/Tutorial",
-    "definitions": {
-        "Tutorial": {
-            "type": "object",
-            "properties": {
-                "Sections": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/Section"
-                    }
-                },
-                "Dialogs": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/Dialog"
-                    }
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Tutorial Editor",
+  "$ref": "#/definitions/Tutorial",
+  "definitions": {
+    "Tutorial": {
+      "type": "object",
+      "properties": {
+        "Sections": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Section"
+          }
+        },
+        "Dialogs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Dialog"
+          }
+        }
+      },
+      "required": ["Sections", "Dialogs"]
+    },
+    "Section": {
+      "type": "object",
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "Activated": {
+          "type": "boolean"
+        },
+        "Initializer": {
+          "type": "string"
+        },
+        "Finalizer": {
+          "type": "string"
+        },
+        "Handlers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EventHandler"
+          }
+        }
+      },
+      "required": ["Name", "Activated"]
+    },
+    "EventHandler": {
+      "type": "object",
+      "properties": {
+        "Category": {
+          "$ref": "#/definitions/EventCategory"
+        },
+        "Source": {
+          "type": "string"
+        },
+        "Type": {
+          "type": "string"
+        },
+        "Filter": {
+          "type": "string"
+        },
+        "Callback": {
+          "type": "string"
+        },
+        "Repeated": {
+          "type": "boolean"
+        }
+      },
+      "required": ["Category", "Type", "Callback"]
+    },
+    "EventHandler.Button": {
+      "type": "object",
+      "properties": {
+        "Filter": {
+          "type": "string"
+        },
+        "Callback": {
+          "type": "string"
+        },
+        "Repeated": {
+          "type": "boolean"
+        }
+      },
+      "required": ["Callback"]
+    },
+    "EventCategory": {
+      "type": "number",
+      "enum": [0, 1, 2, 3, 4, 5, 6, 7, 8],
+      "enumNames": [
+        "General",
+        "Layout",
+        "Widget",
+        "Plot",
+        "Dialog",
+        "Turtle",
+        "Patch",
+        "Link",
+        "NetTango"
+      ]
+    },
+    "Dialog": {
+      "type": "object",
+      "properties": {
+        "Name": {
+          "type": "string"
+        },
+        "Type": {
+          "$ref": "#/definitions/DialogType",
+          "default": 2
+        },
+        "Title": {
+          "type": "string"
+        },
+        "Content": {
+          "type": "string"
+        },
+        "Anchor": {
+          "$ref": "#/definitions/AnchorType",
+          "default": 1
+        },
+        "Buttons": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Button"
+          }
+        },
+        "Handlers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EventHandler"
+          }
+        },
+        "DismissBehavior": {
+          "$ref": "#/definitions/ButtonBehavior",
+          "default": 1
+        }
+      },
+      "required": ["Name", "Type", "Content"],
+      "dependencies": {
+        "Anchor": {
+          "oneOf": [
+            {
+              "properties": {
+                "Anchor": { "enum": [0] },
+                "Spotlight": {
+                  "$ref": "#/definitions/Spotlight"
                 }
+              }
             },
-            "required": [
-                "Sections",
-                "Dialogs"
-            ]
+            {
+              "properties": {
+                "Anchor": { "enum": [1, 2, 3] }
+              }
+            }
+          ]
         },
-        "Section": {
-            "type": "object",
-            "properties": {
-                "Name": {
-                    "type": "string"
-                },
-                "Activated": {
-                    "type": "boolean"
-                },
-                "Initializer": {
-                    "type": "string"
-                },
-                "Finalizer": {
-                    "type": "string"
-                },
-                "Handlers": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/EventHandler"
-                    }
+        "Type": {
+          "oneOf": [
+            {
+              "properties": {
+                "Type": { "enum": [3] },
+                "Questions": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/definitions/Question"
+                  }
                 }
+              }
             },
-            "required": [
-                "Name",
-                "Activated"
-            ]
+            {
+              "properties": {
+                "Anchor": { "enum": [0, 1, 2] }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "DialogType": {
+      "type": "number",
+      "enum": [0, 1, 2, 3],
+      "enumNames": ["Message", "Prompt", "Dialog", "Question"]
+    },
+    "AnchorType": {
+      "type": "number",
+      "enum": [0, 1, 2, 3],
+      "enumNames": ["Spotlight", "Center", "Bottom", "Top"]
+    },
+    "Spotlight": {
+      "type": "object",
+      "properties": {
+        "Region": {
+          "type": "string"
         },
-        "EventHandler": {
-            "type": "object",
-            "properties": {
-                "Category": {
-                    "$ref": "#/definitions/EventCategory"
-                },
-                "Source": {
-                    "type": "string"
-                },
-                "Type": {
-                    "type": "string"
-                },
-                "Filter": {
-                    "type": "string"
-                },
-                "Callback": {
-                    "type": "string"
-                },
-                "Repeated": {
-                    "type": "boolean"
+        "Subregion": {
+          "type": "string"
+        }
+      },
+      "required": ["Region"]
+    },
+    "Button": {
+      "type": "object",
+      "properties": {
+        "Style": {
+          "$ref": "#/definitions/ButtonStyle",
+          "default": 0
+        },
+        "Filter": {
+          "type": "string"
+        },
+        "Behavior": {
+          "$ref": "#/definitions/ButtonBehavior",
+          "default": 2
+        },
+        "Handlers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/EventHandler.Button"
+          }
+        }
+      },
+      "required": ["Style"],
+      "dependencies": {
+        "Style": {
+          "oneOf": [
+            {
+              "properties": {
+                "Style": { "enum": [0, 1, 2] },
+                "Text": {
+                  "type": "string"
                 }
+              }
             },
-            "required": [
-                "Category",
-                "Type",
-                "Callback"
-            ]
+            {
+              "properties": {
+                "Style": { "enum": [3] }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "ButtonStyle": {
+      "type": "number",
+      "enum": [0, 1, 2, 3],
+      "enumNames": ["Standard", "Secondary", "Option", "Default"]
+    },
+    "ButtonBehavior": {
+      "type": "number",
+      "enum": [0, 1, 2],
+      "enumNames": ["None", "Minimize", "Hide"]
+    },
+    "Question": {
+      "type": "object",
+      "properties": {
+        "Name": {
+          "type": "string"
         },
-        "EventHandler.Button": {
-            "type": "object",
-            "properties": {
-                "Filter": {
-                    "type": "string"
-                },
-                "Callback": {
-                    "type": "string"
-                },
-                "Repeated": {
-                    "type": "boolean"
-                }
-            },
-            "required": [
-                "Callback"
-            ]
+        "Subject": {
+          "type": "string"
         },
-        "EventCategory": {
-            "type": "number",
-            "enum": [
-                0,
-                1,
-                2,
-                3,
-                4,
-                5,
-                6,
-                7,
-                8
-            ],
-            "enumNames": [
-                "General",
-                "Layout",
-                "Widget",
-                "Plot",
-                "Dialog",
-                "Turtle",
-                "Patch",
-                "Link",
-                "NetTango"
-            ]
+        "Options": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Option"
+          }
         },
-        "Dialog": {
-            "type": "object",
-            "properties": {
-                "Name": {
-                    "type": "string"
-                },
-                "Type": {
-                    "$ref": "#/definitions/DialogType",
-					"default": 2
-                },
-                "Title": {
-                    "type": "string"
-                },
-                "Content": {
-                    "type": "string"
-                },
-                "Anchor": {
-                    "$ref": "#/definitions/AnchorType",
-					"default": 1
-                },
-                "Buttons": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/Button"
-                    }
-                },
-                "Handlers": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/EventHandler"
-                    }
-                },
-                "DismissBehavior": {
-                    "$ref": "#/definitions/ButtonBehavior",
-					"default": 1
-                }
-            },
-            "required": [
-                "Name",
-                "Type",
-                "Content"
-            ],
-			"dependencies": {
-				"Anchor": {
-					"oneOf": [
-						{
-							"properties": {
-								"Anchor": { "enum": [ 0 ] },
-								"Spotlight": {
-									"$ref": "#/definitions/Spotlight"
-								}
- 							}
-						},
-						{
-							"properties": {
-								"Anchor": { "enum": [ 1, 2, 3 ] }
- 							}
-						}
-					]
-				},
-				"Type": {
-					"oneOf": [
-						{
-							"properties": {
-								"Type": { "enum": [ 3 ] },
-								"Questions": {
-                                    "type": "array",
-                                    "items": {
-                                        "$ref": "#/definitions/Question"
-                                    }
-                                }
- 							}
-						},
-						{
-							"properties": {
-								"Anchor": { "enum": [ 0, 1, 2 ] }
- 							}
-						}
-					]
-				}
-			}
+        "Jump": {
+          "$ref": "#/definitions/Reference"
         },
-        "DialogType": {
-            "type": "number",
-            "enum": [
-                0,
-                1,
-                2,
-                3
-            ],
-            "enumNames": [
-                "Message",
-                "Prompt",
-                "Dialog",
-                "Question"
-            ]
+        "Type": {
+          "$ref": "#/definitions/QuestionType"
         },
-        "AnchorType": {
-            "type": "number",
-            "enum": [
-                0,
-                1,
-                2,
-                3
-            ],
-            "enumNames": [
-                "Spotlight",
-                "Center",
-                "Bottom",
-                "Top"
-            ]
+        "Content": {
+          "type": "string"
         },
-        "Spotlight": {
-            "type": "object",
-            "properties": {
-                "Region": {
-                    "type": "string"
-                },
-                "Subregion": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "Region"
-            ]
+        "Limit": {
+          "type": "number"
         },
-        "Button": {
-            "type": "object",
-            "properties": {
-                "Style": {
-                    "$ref": "#/definitions/ButtonStyle",
-					"default": 0
-                },
-                "Filter": {
-                    "type": "string"
-                },
-                "Behavior": {
-                    "$ref": "#/definitions/ButtonBehavior",
-					"default": 2
-                },
-                "Handlers": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/EventHandler.Button"
-                    }
-                }
-            },
-            "required": [
-                "Style"
-            ],
-			"dependencies": {
-				"Style": {
-					"oneOf": [
-						{
-							"properties": {
-								"Style": { "enum": [ 0, 1, 2 ] },
-								"Text": {
-									"type": "string"
-								}
- 							}
-						},
-						{
-							"properties": {
-								"Style": { "enum": [ 3 ] }
- 							}
-						}
-					]
-				}
-			}
+        "Required": {
+          "type": "boolean"
         },
-        "ButtonStyle": {
-            "type": "number",
-            "enum": [
-                0,
-                1,
-                2,
-				3
-            ],
-            "enumNames": [
-                "Standard",
-                "Secondary",
-                "Option",
-                "Default"
-            ]
+        "Disabled": {
+          "type": "boolean"
         },
-        "ButtonBehavior": {
-            "type": "number",
-            "enum": [
-                0,
-                1,
-                2
-            ],
-            "enumNames": [
-                "None",
-                "Minimize",
-                "Hide"
-            ]
+        "Activations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Reference"
+          }
+        }
+      },
+      "required": ["Subject", "Options", "Type", "Required", "Disabled"]
+    },
+    "QuestionType": {
+      "type": "number",
+      "enum": [0, 1, 2, 3, 4, 5],
+      "enumNames": ["Single", "Multiple", "Text", "Textarea", "Score", "Rank"]
+    },
+    "Option": {
+      "type": "object",
+      "properties": {
+        "Disabled": {
+          "type": "boolean"
         },
-        "Question": {
-            "type": "object",
-            "properties": {
-                "Name": {
-                    "type": "string"
-                },
-                "Subject": {
-                    "type": "string"
-                },
-                "Options": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/Option"
-                    }
-                },
-                "Jump": {
-                    "$ref": "#/definitions/Reference"
-                },
-                "Type": {
-                    "$ref": "#/definitions/QuestionType"
-                },
-                "Content": {
-                    "type": "string"
-                },
-                "Limit": {
-                    "type": "number"
-                },
-                "Required": {
-                    "type": "boolean"
-                },
-                "Disabled": {
-                    "type": "boolean"
-                },
-                "Activations": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/Reference"
-                    }
-                }
-            },
-            "required": [
-                "Subject",
-                "Options",
-                "Type",
-                "Required",
-                "Disabled"
-            ]
+        "Input": {
+          "type": "boolean"
         },
-        "QuestionType": {
-            "type": "number",
-            "enum": [
-                0,
-                1,
-                2,
-                3,
-                4,
-                5
-            ],
-            "enumNames": [
-                "Single",
-                "Multiple",
-                "Text",
-                "Textarea",
-                "Score",
-                "Rank"
-            ]
+        "Levels": {
+          "type": "number"
+        },
+        "Jump": {
+          "$ref": "#/definitions/Reference"
+        },
+        "Activations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Reference"
+          }
+        }
+      },
+      "required": ["Disabled", "Input"]
+    },
+    "Reference": {
+      "type": "object",
+      "properties": {
+        "Target": {
+          "type": "string"
         },
         "Option": {
-            "type": "object",
-            "properties": {
-                "Disabled": {
-                    "type": "boolean"
-                },
-                "Input": {
-                    "type": "boolean"
-                },
-                "Levels": {
-                    "type": "number"
-                },
-                "Jump": {
-                    "$ref": "#/definitions/Reference"
-                },
-                "Activations": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/Reference"
-                    }
-                }
-            },
-            "required": [
-                "Disabled",
-                "Input"
-            ]
-        },
-        "Reference": {
-            "type": "object",
-            "properties": {
-                "Target": {
-                    "type": "string"
-                },
-                "Option": {
-                    "type": "number"
-                }
-            },
-            "required": [
-                "Target"
-            ]
+          "type": "number"
         }
+      },
+      "required": ["Target"]
     }
+  }
 }
