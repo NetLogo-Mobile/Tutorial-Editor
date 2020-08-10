@@ -4,7 +4,7 @@
       "Name": {
         "ui:options": {
           "semantic": {
-            "placeholder": "The unique name of this section. You may later activate or de-activate this section by it."
+            "placeholder": "The unique name of this section. You may later activate or de-activate this section by it. "
           }
         }
       },
@@ -12,6 +12,13 @@
         "ui:options": {
           "semantic": {
             "toggle": true
+          }
+        }
+      },
+      "Filter": {
+        "ui:options": {
+          "semantic": {
+			"placeholder": "This reporter will determine whether the section is available for `forward` or `back` command to activate. "
           }
         }
       },
