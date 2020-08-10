@@ -6,7 +6,7 @@ function App() {
   const [selectFile, setSelectFile] = useState(null);
   const [schema, setSchema] = useState({});
   const [uiSchema, setUISchema] = useState({});
-  const [formData, setFormData] = useState({});
+  const [uploadedFormData, setUploadedFormData] = useState({});
 
   useEffect(() => {
     fetch(`${process.env.PUBLIC_URL}/tutorial-schema.json`)
@@ -36,8 +36,8 @@ function App() {
     download.remove();
   };
 
-  const onSubmit = ({ form }) => {
-    downloadFormData(form);
+  const onSubmit = ({ formData }) => {
+    downloadFormData(formData);
   };
 
   const onFileChange = ({ target: { files } }) => {
@@ -53,7 +53,7 @@ function App() {
 
     reader.onload = (event) => {
       const json = JSON.parse(event.target.result);
-      setFormData(json);
+      setUploadedFormData(json);
     };
 
     reader.readAsText(selectFile);
@@ -68,7 +68,7 @@ function App() {
       <Form
         schema={schema}
         uiSchema={uiSchema}
-        formData={formData}
+        formData={uploadedFormData}
         onSubmit={onSubmit}
       />
     </div>
