@@ -1,0 +1,14 @@
+button[type='submit'] {
+  display: none;
+}
+
+.tutorial__header {
+  background-color: #fff;
+  text-align: center;
+  padding: 28px 0 10px 0;
+  box-shadow: 6px 0 6px rgba(0, 0, 0, 0.1);
+}
+
+.tutorial__container {
+  padding-top: 30px;
+}
