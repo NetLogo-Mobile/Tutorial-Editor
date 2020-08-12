@@ -1,15 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Button, Container, Sticky, Grid, Rail } from 'semantic-ui-react';
 import $ from 'jquery';
+import Form from '@rjsf/semantic-ui';
 import TutorialMenu from './components/TutorialMenu';
-import Form from './components/FixedForm';
 import './App.css';
 
 function App() {
   const [schema, setSchema] = useState({});
   const [uiSchema, setUISchema] = useState({});
-  const [uploadedFormData, setUploadedFormData] = useState({});
-  const [tutorialMenu, setTutorialMenu] = useState({});
+  const [tutorialData, setTutorialData] = useState({});
 
   useEffect(() => {
     fetch(`${process.env.PUBLIC_URL}/tutorial-schema.json`)
@@ -49,8 +48,7 @@ function App() {
 
     reader.onload = (event) => {
       const json = JSON.parse(event.target.result);
-      setUploadedFormData(json);
-      setTutorialMenu(json);
+      setTutorialData(json);
     };
     reader.readAsText(file);
   };
@@ -64,7 +62,7 @@ function App() {
   };
 
   const onFormChange = ({ formData }) => {
-    setTutorialMenu(formData);
+    setTutorialData(formData);
   };
 
   const contextRef = useRef();
@@ -87,7 +85,7 @@ function App() {
                 </Button>
               </Button.Group>
             </Sticky>
-            <TutorialMenu tutorial={tutorialMenu} contextRef={contextRef} />
+            <TutorialMenu tutorial={tutorialData} contextRef={contextRef} />
           </Rail>
           <Container className="tutorial__container">
             <input
@@ -99,7 +97,7 @@ function App() {
             <Form
               schema={schema}
               uiSchema={uiSchema}
-              formData={uploadedFormData}
+              formData={tutorialData}
               onSubmit={downloadFormData}
               onChange={onFormChange}
             />
