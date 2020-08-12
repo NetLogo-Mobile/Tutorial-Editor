@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/Tutorial-Editor/static/css/main.b8680fed.chunk.css",
-    "main.js": "/Tutorial-Editor/static/js/main.1f3a978c.chunk.js",
-    "main.js.map": "/Tutorial-Editor/static/js/main.1f3a978c.chunk.js.map",
+    "main.css": "/Tutorial-Editor/static/css/main.4227361a.chunk.css",
+    "main.js": "/Tutorial-Editor/static/js/main.0f5b98be.chunk.js",
+    "main.js.map": "/Tutorial-Editor/static/js/main.0f5b98be.chunk.js.map",
     "runtime-main.js": "/Tutorial-Editor/static/js/runtime-main.8d25cac9.js",
     "runtime-main.js.map": "/Tutorial-Editor/static/js/runtime-main.8d25cac9.js.map",
     "static/css/2.50e765de.chunk.css": "/Tutorial-Editor/static/css/2.50e765de.chunk.css",
-    "static/js/2.55238574.chunk.js": "/Tutorial-Editor/static/js/2.55238574.chunk.js",
-    "static/js/2.55238574.chunk.js.map": "/Tutorial-Editor/static/js/2.55238574.chunk.js.map",
+    "static/js/2.466db304.chunk.js": "/Tutorial-Editor/static/js/2.466db304.chunk.js",
+    "static/js/2.466db304.chunk.js.map": "/Tutorial-Editor/static/js/2.466db304.chunk.js.map",
     "index.html": "/Tutorial-Editor/index.html",
-    "precache-manifest.34bd8af3a67434402356d8dedced2ae3.js": "/Tutorial-Editor/precache-manifest.34bd8af3a67434402356d8dedced2ae3.js",
+    "precache-manifest.2f919b0dc5c90f72207da4b58956efdc.js": "/Tutorial-Editor/precache-manifest.2f919b0dc5c90f72207da4b58956efdc.js",
     "service-worker.js": "/Tutorial-Editor/service-worker.js",
     "static/css/2.50e765de.chunk.css.map": "/Tutorial-Editor/static/css/2.50e765de.chunk.css.map",
-    "static/css/main.b8680fed.chunk.css.map": "/Tutorial-Editor/static/css/main.b8680fed.chunk.css.map",
-    "static/js/2.55238574.chunk.js.LICENSE.txt": "/Tutorial-Editor/static/js/2.55238574.chunk.js.LICENSE.txt",
+    "static/css/main.4227361a.chunk.css.map": "/Tutorial-Editor/static/css/main.4227361a.chunk.css.map",
+    "static/js/2.466db304.chunk.js.LICENSE.txt": "/Tutorial-Editor/static/js/2.466db304.chunk.js.LICENSE.txt",
     "static/media/semantic.min.css": "/Tutorial-Editor/static/media/outline-icons.ef60a4f6.woff"
   },
   "entrypoints": [
     "static/js/runtime-main.8d25cac9.js",
     "static/css/2.50e765de.chunk.css",
-    "static/js/2.55238574.chunk.js",
-    "static/css/main.b8680fed.chunk.css",
-    "static/js/main.1f3a978c.chunk.js"
+    "static/js/2.466db304.chunk.js",
+    "static/css/main.4227361a.chunk.css",
+    "static/js/main.0f5b98be.chunk.js"
   ]
 }

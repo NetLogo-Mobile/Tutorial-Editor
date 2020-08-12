@@ -1,6 +1,5 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Tutorial Editor",
   "$ref": "#/definitions/Tutorial",
   "definitions": {
     "Tutorial": {
@@ -30,6 +29,9 @@
         "Activated": {
           "type": "boolean"
         },
+        "Filter": {
+          "type": "string"
+        },
         "Initializer": {
           "type": "string"
         },
@@ -43,7 +45,7 @@
           }
         }
       },
-      "required": ["Name", "Activated"]
+      "required": ["Name"]
     },
     "EventHandler": {
       "type": "object",

@@ -1,10 +1,13 @@
 {
+  "ui:title": "Tutorial Editor",
   "Sections": {
+    "ui:children": "Section",
     "items": {
+      "ui:title": "Section",
       "Name": {
         "ui:options": {
           "semantic": {
-            "placeholder": "The unique name of this section. You may later activate or de-activate this section by it."
+            "placeholder": "The unique name of this section. You may later activate or de-activate this section by it. "
           }
         }
       },
@@ -12,6 +15,13 @@
         "ui:options": {
           "semantic": {
             "toggle": true
+          }
+        }
+      },
+      "Filter": {
+        "ui:options": {
+          "semantic": {
+            "placeholder": "This reporter will determine whether the section is available for `forward` or `back` command to activate. "
           }
         }
       },
@@ -31,7 +41,9 @@
       },
       "Handlers": {
         "ui:title": "Handlers attached to the Section",
+        "ui:children": "Handler",
         "items": {
+          "ui:title": "Handler",
           "Category": {
             "ui:options": {
               "semantic": {
@@ -74,8 +86,7 @@
               "semantic": {
                 "toggle": true
               }
-            },
-            "ui:help": "If an event handler is not repeated, it will remove itself after the first execution of the callback."
+            }
           },
           "ui:order": ["Category", "Source", "*"]
         }
@@ -83,7 +94,10 @@
     }
   },
   "Dialogs": {
+    "ui:title": "Dialog",
+    "ui:children": "Dialog",
     "items": {
+      "ui:title": "Dialog",
       "Name": {
         "ui:options": {
           "semantic": {
@@ -114,6 +128,7 @@
         }
       },
       "Buttons": {
+        "ui:children": "Button",
         "items": {
           "Text": {
             "ui:options": {
@@ -138,12 +153,14 @@
             }
           },
           "Handlers": {
-            "ui:title": "Handlers when Clicked",
+            "ui:title": "Actions when Clicked",
+            "ui:children": "Action",
             "items": {
+              "ui:title": "Action",
               "Filter": {
                 "ui:options": {
                   "semantic": {
-                    "placeholder": "A NetLogo reporter to determine whether this event handler will be fired."
+                    "placeholder": "A NetLogo reporter to determine whether this action will be fired."
                   }
                 }
               },
@@ -159,8 +176,7 @@
                   "semantic": {
                     "toggle": true
                   }
-                },
-                "ui:help": "If an event handler is not repeated, it will remove itself after the first execution of the callback."
+                }
               }
             }
           },
@@ -177,7 +193,9 @@
       },
       "Handlers": {
         "ui:title": "Handlers attached to the Dialog",
+        "ui:children": "Handler",
         "items": {
+          "ui:title": "Handler",
           "Category": {
             "ui:options": {
               "semantic": {
@@ -220,8 +238,7 @@
               "semantic": {
                 "toggle": true
               }
-            },
-            "ui:help": "If an event handler is not repeated, it will remove itself after the first execution of the callback."
+            }
           },
           "ui:order": ["Category", "Source", "*"]
         }
