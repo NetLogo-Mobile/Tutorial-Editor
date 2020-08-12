@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import Form from '@rjsf/semantic-ui';
-import { Button, Container, Sticky, Grid } from 'semantic-ui-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Button, Container, Sticky, Grid, Rail } from 'semantic-ui-react';
 import $ from 'jquery';
+import TutorialMenu from './components/TutorialMenu';
+import Form from './components/FixedForm';
 import './App.css';
 
 function App() {
   const [schema, setSchema] = useState({});
   const [uiSchema, setUISchema] = useState({});
   const [uploadedFormData, setUploadedFormData] = useState({});
+  const [tutorialMenu, setTutorialMenu] = useState({});
 
   useEffect(() => {
     fetch(`${process.env.PUBLIC_URL}/tutorial-schema.json`)
@@ -48,6 +50,7 @@ function App() {
     reader.onload = (event) => {
       const json = JSON.parse(event.target.result);
       setUploadedFormData(json);
+      setTutorialMenu(json);
     };
     reader.readAsText(file);
   };
@@ -60,16 +63,19 @@ function App() {
     $('Form button[type=submit]').click();
   };
 
+  const onFormChange = ({ formData }) => {
+    setTutorialMenu(formData);
+  };
+
+  const contextRef = useRef();
+
   return (
     <div className="App">
-      <Grid>
-        <Grid.Column width={3}>
-          <h3>Tutorial Editor</h3>
-        </Grid.Column>
-        <Grid.Column width={13}>
-          <Sticky>
-            <Container className="tutorial__header">
-              <Button.Group>
+      <Grid centered columns={2}>
+        <Grid.Column>
+          <Rail position="right">
+            <Sticky className="main-buttons__wrapper" context={contextRef}>
+              <Button.Group className="main-buttons">
                 <Button onClick={onClickUpload}>
                   <i className="upload icon" />
                   Upload
@@ -80,8 +86,9 @@ function App() {
                   Download
                 </Button>
               </Button.Group>
-            </Container>
-          </Sticky>
+            </Sticky>
+            <TutorialMenu tutorial={tutorialMenu} contextRef={contextRef} />
+          </Rail>
           <Container className="tutorial__container">
             <input
               type="file"
@@ -94,6 +101,7 @@ function App() {
               uiSchema={uiSchema}
               formData={uploadedFormData}
               onSubmit={downloadFormData}
+              onChange={onFormChange}
             />
           </Container>
         </Grid.Column>

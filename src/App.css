@@ -12,3 +12,17 @@ button[type='submit'] {
 .tutorial__container {
   padding-top: 30px;
 }
+
+.tutorial-menu__wrapper {
+  position: fixed !important;
+  top: 100px;
+}
+
+.ui.vertical.menu {
+  width: 237px !important;
+}
+
+.main-buttons__wrapper {
+  position: fixed !important;
+  top: 30px;
+}
