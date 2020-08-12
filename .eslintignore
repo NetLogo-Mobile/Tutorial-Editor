@@ -3,3 +3,4 @@ build
 public
 examples
 src/serviceWorker.js
+src/components

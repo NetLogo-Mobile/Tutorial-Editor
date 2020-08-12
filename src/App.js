@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Button, Container, Sticky, Grid, Rail } from 'semantic-ui-react';
+import { Button, Container, Sticky, Grid } from 'semantic-ui-react';
 import $ from 'jquery';
 import Form from '@rjsf/semantic-ui';
 import TutorialMenu from './components/TutorialMenu';
+import ArrayTemplate from './components/ArrayFieldTemplate';
+import ObjectTemplate from './components/ObjectFieldTemplate';
 import './App.css';
 
 function App() {
@@ -68,11 +70,30 @@ function App() {
   const contextRef = useRef();
 
   return (
-    <div className="App">
-      <Grid centered columns={2}>
-        <Grid.Column>
-          <Rail position="right">
-            <Sticky className="main-buttons__wrapper" context={contextRef}>
+    <Container>
+      <Grid columns="2">
+        <Grid.Row>
+          <Grid.Column width="12">
+            <Container className="tutorial_container">
+              <input
+                type="file"
+                accept=".json"
+                onChange={onFileChange}
+                style={{ display: 'none' }}
+              />
+              <Form
+                schema={schema}
+                uiSchema={uiSchema}
+                formData={tutorialData}
+                onSubmit={downloadFormData}
+                onChange={onFormChange}
+                ObjectFieldTemplate={ObjectTemplate}
+                ArrayFieldTemplate={ArrayTemplate}
+              />
+            </Container>
+          </Grid.Column>
+          <Grid.Column width="4">
+            <Sticky className="main-buttons_wrapper" context={contextRef}>
               <Button.Group className="main-buttons">
                 <Button onClick={onClickUpload}>
                   <i className="upload icon" />
@@ -86,25 +107,10 @@ function App() {
               </Button.Group>
             </Sticky>
             <TutorialMenu tutorial={tutorialData} contextRef={contextRef} />
-          </Rail>
-          <Container className="tutorial__container">
-            <input
-              type="file"
-              accept=".json"
-              onChange={onFileChange}
-              style={{ display: 'none' }}
-            />
-            <Form
-              schema={schema}
-              uiSchema={uiSchema}
-              formData={tutorialData}
-              onSubmit={downloadFormData}
-              onChange={onFormChange}
-            />
-          </Container>
-        </Grid.Column>
+          </Grid.Column>
+        </Grid.Row>
       </Grid>
-    </div>
+    </Container>
   );
 }
 

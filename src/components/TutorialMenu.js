@@ -5,7 +5,7 @@ import { Menu, Sticky } from 'semantic-ui-react';
 const TutorialMenu = ({ tutorial, contextRef }) => {
   return (
     <Sticky
-      className="tutorial-menu__wrapper"
+      className="tutorial-menu_wrapper"
       offset={100}
       pushing={false}
       context={contextRef}
@@ -15,8 +15,13 @@ const TutorialMenu = ({ tutorial, contextRef }) => {
           <Menu.Header>Sections</Menu.Header>
           <Menu.Menu>
             {tutorial.Sections
-              ? tutorial.Sections.map((section) => (
-                  <Menu.Item name={section.Name} />
+              ? tutorial.Sections.map((section, index) => (
+                  <Menu.Item
+                    name={section.Name}
+                    href={`#root_Sections_${index}_Name`}
+                  >
+                    {section.Name}
+                  </Menu.Item>
                 ))
               : null}
           </Menu.Menu>
@@ -25,8 +30,13 @@ const TutorialMenu = ({ tutorial, contextRef }) => {
           <Menu.Header>Dialogs</Menu.Header>
           <Menu.Menu>
             {tutorial.Dialogs
-              ? tutorial.Dialogs.map((dialog) => (
-                  <Menu.Item name={dialog.Name} />
+              ? tutorial.Dialogs.map((dialog, index) => (
+                  <Menu.Item
+                    name={dialog.Name}
+                    href={`#root_Dialogs_${index}_Name`}
+                  >
+                    {dialog.Name}
+                  </Menu.Item>
                 ))
               : null}
           </Menu.Menu>
