@@ -86,8 +86,7 @@
               "semantic": {
                 "toggle": true
               }
-            },
-            "ui:help": "If an event handler is not repeated, it will remove itself after the first execution of the callback."
+            }
           },
           "ui:order": ["Category", "Source", "*"]
         }
@@ -98,6 +97,7 @@
     "ui:title": "Dialog",
     "ui:children": "Dialog",
     "items": {
+      "ui:title": "Dialog",
       "Name": {
         "ui:options": {
           "semantic": {
@@ -176,8 +176,7 @@
                   "semantic": {
                     "toggle": true
                   }
-                },
-                "ui:help": "If an event handler is not repeated, it will remove itself after the first execution of the callback."
+                }
               }
             }
           },
@@ -239,8 +238,7 @@
               "semantic": {
                 "toggle": true
               }
-            },
-            "ui:help": "If an event handler is not repeated, it will remove itself after the first execution of the callback."
+            }
           },
           "ui:order": ["Category", "Source", "*"]
         }
