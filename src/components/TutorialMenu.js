@@ -1,6 +1,6 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
-import { Menu, Sticky } from 'semantic-ui-react';
+import { Menu } from 'semantic-ui-react';
 
 const TutorialMenu = ({ tutorial, contextRef }) => {
   return (

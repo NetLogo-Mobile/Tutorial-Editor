@@ -5,12 +5,17 @@ import Form from '@rjsf/semantic-ui';
 import TutorialMenu from './components/TutorialMenu';
 import ArrayTemplate from './components/ArrayFieldTemplate';
 import ObjectTemplate from './components/ObjectFieldTemplate';
+import CodeMirrorWidget from './components/CodeMirrorWidget/CodeMirrorWidget';
 import './App.css';
 
 function App() {
   const [schema, setSchema] = useState({});
   const [uiSchema, setUISchema] = useState({});
   const [tutorialData, setTutorialData] = useState({});
+
+  const widgets = {
+    codeMirror: CodeMirrorWidget,
+  };
 
   useEffect(() => {
     fetch(`${process.env.PUBLIC_URL}/tutorial-schema.json`)
@@ -89,6 +94,7 @@ function App() {
                 onChange={onFormChange}
                 ObjectFieldTemplate={ObjectTemplate}
                 ArrayFieldTemplate={ArrayTemplate}
+                widgets={widgets}
               />
             </Container>
           </Grid.Column>

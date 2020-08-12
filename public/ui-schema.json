@@ -26,16 +26,14 @@
         }
       },
       "Initializer": {
-        "ui:widget": "textarea",
+        "ui:widget": "codeMirror",
         "ui:options": {
-          "rows": 2,
           "placeholder": "NetLogo code here will be executed when the section is being activated. "
         }
       },
       "Finalizer": {
-        "ui:widget": "textarea",
+        "ui:widget": "codeMirror",
         "ui:options": {
-          "rows": 2,
           "placeholder": "NetLogo code here will be executed when the section is being de-activated. "
         }
       },
@@ -75,9 +73,8 @@
             }
           },
           "Callback": {
-            "ui:widget": "textarea",
+            "ui:widget": "codeMirror",
             "ui:options": {
-              "rows": 2,
               "placeholder": "NetLogo code here will be executed when the conditions are met and the filter returns true. "
             }
           },
@@ -165,9 +162,8 @@
                 }
               },
               "Callback": {
-                "ui:widget": "textarea",
+                "ui:widget": "codeMirror",
                 "ui:options": {
-                  "rows": 2,
                   "placeholder": "NetLogo code here will be executed when the button is clicked and the filter returns true. "
                 }
               },
@@ -227,9 +223,8 @@
             }
           },
           "Callback": {
-            "ui:widget": "textarea",
+            "ui:widget": "codeMirror",
             "ui:options": {
-              "rows": 2,
               "placeholder": "NetLogo code here will be executed when the conditions are met and the filter returns true. "
             }
           },
