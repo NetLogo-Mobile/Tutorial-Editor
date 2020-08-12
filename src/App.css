@@ -13,16 +13,7 @@ button[type='submit'] {
   padding-top: 30px;
 }
 
-.tutorial-menu_wrapper {
-  position: fixed !important;
-  top: 100px;
-}
-
-.ui.vertical.menu {
-  width: 237px !important;
-}
-
-.main-buttons_wrapper {
-  position: fixed !important;
-  top: 30px;
+.tool_container {
+  position: fixed;
+  padding-top: 30px;
 }

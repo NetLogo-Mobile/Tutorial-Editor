@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Button, Container, Sticky, Grid } from 'semantic-ui-react';
+import { Button, Container, Grid } from 'semantic-ui-react';
 import $ from 'jquery';
 import Form from '@rjsf/semantic-ui';
 import TutorialMenu from './components/TutorialMenu';
@@ -93,20 +93,20 @@ function App() {
             </Container>
           </Grid.Column>
           <Grid.Column width="4">
-            <Sticky className="main-buttons_wrapper" context={contextRef}>
-              <Button.Group className="main-buttons">
+            <div className="tool_container">
+              <Button.Group fluid>
                 <Button onClick={onClickUpload}>
                   <i className="upload icon" />
-                  Upload
+                  Load
                 </Button>
                 <Button.Or />
                 <Button positive onClick={onClickDownload}>
                   <i className="download icon" />
-                  Download
+                  Save
                 </Button>
               </Button.Group>
-            </Sticky>
-            <TutorialMenu tutorial={tutorialData} contextRef={contextRef} />
+              <TutorialMenu tutorial={tutorialData} contextRef={contextRef} />
+            </div>
           </Grid.Column>
         </Grid.Row>
       </Grid>
