@@ -1,0 +1,77 @@
+/* Adapted by John Chen for NetLogo Mobile */
+
+.cm-s-netlogo-default span.cm-keyword {
+  line-height: 1em;
+  font-weight: bold;
+  color: #007f69;
+}
+.cm-s-netlogo-default span.cm-command {
+  color: #0000aa;
+}
+.cm-s-netlogo-default span.cm-atom {
+  color: #6c8cd5;
+}
+.cm-s-netlogo-default span.cm-number {
+  color: #963700;
+}
+.cm-s-netlogo-default span.cm-constant {
+  color: #963700;
+}
+.cm-s-netlogo-default span.cm-def {
+  text-decoration: underline;
+}
+.cm-s-netlogo-default span.cm-variable {
+  color: black;
+}
+.cm-s-netlogo-default span.cm-variable-2 {
+  color: black;
+}
+.cm-s-netlogo-default span.cm-variable-3,
+.cm-s-netlogo-default span.cm-type {
+  color: black;
+}
+.cm-s-netlogo-default span.cm-property {
+}
+.cm-s-netlogo-default span.cm-operator {
+}
+.cm-s-netlogo-default span.cm-comment {
+  color: #5a5a5a;
+  font-style: italic;
+}
+.cm-s-netlogo-default span.cm-string {
+  color: #963700;
+}
+.cm-s-netlogo-default span.cm-meta {
+  color: yellow;
+}
+.cm-s-netlogo-default span.cm-qualifier {
+  color: grey;
+}
+.cm-s-netlogo-default span.cm-builtin {
+  color: #7ea656;
+}
+.cm-s-netlogo-default span.cm-bracket {
+  color: #cc7;
+}
+.cm-s-netlogo-default span.cm-tag {
+  color: #3f7f7f;
+}
+.cm-s-netlogo-default span.cm-attribute {
+  color: #7f007f;
+}
+.cm-s-netlogo-default span.cm-error {
+  color: #fff;
+  background: #cc2200;
+}
+.cm-s-netlogo-default span.cm-reporter {
+  color: #660096;
+}
+
+.cm-s-netlogo-default .CodeMirror-activeline-background {
+  background: #e8f2ff;
+}
+.cm-s-netlogo-default .CodeMirror-matchingbracket {
+  outline: 1px solid grey;
+  color: black !important;
+  background: yellow;
+}

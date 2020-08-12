@@ -4,6 +4,8 @@ import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/material.css';
 import { UnControlled as CodeMirror } from 'react-codemirror2';
 import './code-mirror-widget.css';
+require('../../lib/netlogo.js');
+require('../../lib/netlogo.css');
 
 const CodeMirrorWidget = (props) => {
   const defaultComments = `;;${props.placeholder}\n`;
@@ -14,8 +16,8 @@ const CodeMirrorWidget = (props) => {
         <CodeMirror
           value={props.value || defaultComments}
           options={{
-            mode: 'xml',
-            theme: 'material',
+            mode: 'netlogo',
+            theme: 'netlogo-default',
             lineNumbers: true,
           }}
         />
