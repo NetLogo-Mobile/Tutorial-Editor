@@ -94,7 +94,6 @@
     }
   },
   "Dialogs": {
-    "ui:title": "Dialog",
     "ui:children": "Dialog",
     "items": {
       "ui:title": "Dialog",
@@ -130,6 +129,7 @@
       "Buttons": {
         "ui:children": "Button",
         "items": {
+          "ui:title": "Button",
           "Text": {
             "ui:options": {
               "semantic": {
