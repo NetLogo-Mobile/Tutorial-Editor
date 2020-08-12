@@ -18,7 +18,6 @@ function ObjectFieldTemplate({
     .map((prop) => prop.content.props.idSchema.$id);
   return (
     <React.Fragment>
-      {fieldName.length > 0 && <div id={fieldName[0]}></div>}
       {fieldTitle && (
         <TitleField
           id={`${idSchema.$id}-title`}
@@ -27,6 +26,7 @@ function ObjectFieldTemplate({
           required={required}
         />
       )}
+      {fieldName.length > 0 && <span id={fieldName[0]}></span>}
       {fieldDescription && (
         <DescriptionField
           id={`${idSchema.$id}-description`}
