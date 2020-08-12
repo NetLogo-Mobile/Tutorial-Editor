@@ -114,7 +114,7 @@
       "Content": {
         "ui:widget": "textarea",
         "ui:options": {
-          "rows": 2,
+          "rows": 4,
           "placeholder": "Content of the dialog. Template syntax is supported."
         }
       },

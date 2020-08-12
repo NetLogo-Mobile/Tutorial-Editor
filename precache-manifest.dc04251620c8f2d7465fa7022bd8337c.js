@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a309903eee05d623ba66d67c98579cfb",
+    "revision": "03c0af5993386bdc4d3d9c1eaa09621f",
     "url": "/Tutorial-Editor/index.html"
   },
   {
-    "revision": "1962eb92144dd8cbca1c",
+    "revision": "1f0bf4452e80e6970fc4",
     "url": "/Tutorial-Editor/static/css/2.50e765de.chunk.css"
   },
   {
-    "revision": "e0960e6544cf1c4fbb29",
-    "url": "/Tutorial-Editor/static/css/main.4227361a.chunk.css"
+    "revision": "039db207ed16bcafda30",
+    "url": "/Tutorial-Editor/static/css/main.8ff44363.chunk.css"
   },
   {
-    "revision": "1962eb92144dd8cbca1c",
-    "url": "/Tutorial-Editor/static/js/2.466db304.chunk.js"
+    "revision": "1f0bf4452e80e6970fc4",
+    "url": "/Tutorial-Editor/static/js/2.0204f711.chunk.js"
   },
   {
     "revision": "01d73cf4364fe4e94d2ded283c64bbf3",
-    "url": "/Tutorial-Editor/static/js/2.466db304.chunk.js.LICENSE.txt"
+    "url": "/Tutorial-Editor/static/js/2.0204f711.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "e0960e6544cf1c4fbb29",
-    "url": "/Tutorial-Editor/static/js/main.f7dfe8ab.chunk.js"
+    "revision": "039db207ed16bcafda30",
+    "url": "/Tutorial-Editor/static/js/main.3784f512.chunk.js"
   },
   {
     "revision": "4cdd89b99032f12e8b86",
