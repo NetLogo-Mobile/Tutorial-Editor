@@ -34,3 +34,7 @@ h5.ui.header {
 .array-item .array-item h5.ui.header {
   font-size: 1.2rem;
 }
+
+.CodeMirror {
+  font-family: Consolas, 'Courier New', Courier, monospace;
+}
