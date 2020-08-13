@@ -7,7 +7,7 @@
       "Name": {
         "ui:options": {
           "semantic": {
-            "placeholder": "The unique name of this section. You may later activate or de-activate this section by it. "
+            "placeholder": "The unique name of this section. You may later activate or de-activate this section by it."
           }
         }
       },
@@ -21,22 +21,20 @@
       "Filter": {
         "ui:options": {
           "semantic": {
-            "placeholder": "This reporter will determine whether the section is available for `forward` or `back` command to activate. "
+            "placeholder": "This reporter will determine whether the section is available for `forward` or `back` command to activate."
           }
         }
       },
       "Initializer": {
-        "ui:widget": "textarea",
+        "ui:widget": "codeMirror",
         "ui:options": {
-          "rows": 2,
-          "placeholder": "NetLogo code here will be executed when the section is being activated. "
+          "placeholder": "NetLogo code here will be executed\n;;when the section is being activated."
         }
       },
       "Finalizer": {
-        "ui:widget": "textarea",
+        "ui:widget": "codeMirror",
         "ui:options": {
-          "rows": 2,
-          "placeholder": "NetLogo code here will be executed when the section is being de-activated. "
+          "placeholder": "NetLogo code here will be executed\n;;when the section is being de-activated."
         }
       },
       "Handlers": {
@@ -75,10 +73,9 @@
             }
           },
           "Callback": {
-            "ui:widget": "textarea",
+            "ui:widget": "codeMirror",
             "ui:options": {
-              "rows": 2,
-              "placeholder": "NetLogo code here will be executed when the conditions are met and the filter returns true. "
+              "placeholder": "NetLogo code here will be executed\n;;when the conditions are met and the filter returns true."
             }
           },
           "Repeated": {
@@ -165,10 +162,9 @@
                 }
               },
               "Callback": {
-                "ui:widget": "textarea",
+                "ui:widget": "codeMirror",
                 "ui:options": {
-                  "rows": 2,
-                  "placeholder": "NetLogo code here will be executed when the button is clicked and the filter returns true. "
+                  "placeholder": "NetLogo code here will be executed\n;;when the button is clicked and the filter returns true."
                 }
               },
               "Repeated": {
@@ -227,10 +223,9 @@
             }
           },
           "Callback": {
-            "ui:widget": "textarea",
+            "ui:widget": "codeMirror",
             "ui:options": {
-              "rows": 2,
-              "placeholder": "NetLogo code here will be executed when the conditions are met and the filter returns true. "
+              "placeholder": "NetLogo code here will be executed\n;;when the conditions are met and the filter returns true."
             }
           },
           "Repeated": {
