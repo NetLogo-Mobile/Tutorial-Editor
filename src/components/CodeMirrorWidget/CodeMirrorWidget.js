@@ -4,7 +4,6 @@ import 'codemirror/addon/selection/active-line';
 import 'codemirror/addon/edit/matchbrackets';
 import 'codemirror/addon/edit/trailingspace';
 import 'codemirror/lib/codemirror.css';
-import 'codemirror/theme/material.css';
 import { Controlled as CodeMirror } from 'react-codemirror2';
 import './code-mirror-widget.css';
 require('../../lib/netlogo.js');
@@ -30,7 +29,6 @@ const CodeMirrorWidget = (props) => {
             styleActiveLine: true,
             styleActiveSelected: true,
             matchBrackets: true,
-            viewportMargin: 10,
             showTrailingSpace: true,
             viewportMargin: Infinity,
           }}
