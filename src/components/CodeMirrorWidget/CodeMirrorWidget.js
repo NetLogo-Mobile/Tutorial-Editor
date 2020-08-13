@@ -8,17 +8,25 @@ require('../../lib/netlogo.js');
 require('../../lib/netlogo.css');
 
 const CodeMirrorWidget = (props) => {
-  const defaultComments = `;;${props.placeholder}\n`;
+  const { placeholder, options, onChange, required, value, label } = props;
+  const defaultComments = `;;${placeholder}\n` || `;;To write netlogo code`;
+  const _onChange = (value) => {
+    console.log(value);
+    onChange && onChange(value === '' ? options.emptyValue : value);
+  };
   return (
     <Fragment>
-      <Form.Field required={props.required}>
-        <label>{props.label}</label>
+      <Form.Field required={required}>
+        <label>{label}</label>
         <CodeMirror
-          value={props.value || defaultComments}
+          value={value || defaultComments}
           options={{
             mode: 'netlogo',
             theme: 'netlogo-default',
             lineNumbers: true,
+          }}
+          onChange={(editor, data, value) => {
+            _onChange(value);
           }}
         />
       </Form.Field>
