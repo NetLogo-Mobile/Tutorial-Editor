@@ -1,3 +1,5 @@
 .CodeMirror {
   height: auto;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', Courier,
+    monospace;
 }

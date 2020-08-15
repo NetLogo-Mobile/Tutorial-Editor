@@ -1,10 +1,12 @@
 /* eslint-disable */
+
 const CodeMirror = require('codemirror/lib/codemirror.js');
 require('codemirror/addon/mode/simple.js');
 
 (function () {
   var all,
     allMixedCase,
+    extensions,
     commands,
     constants,
     directives,
@@ -258,6 +260,8 @@ require('codemirror/addon/mode/simple.js');
     'plot:move',
     'plot:set-title',
   ];
+
+  extensions = ['tutorial', 'widget', 'workspace', 'plot'];
 
   reporters = [
     '!=',
@@ -634,6 +638,7 @@ require('codemirror/addon/mode/simple.js');
   ];
 
   allMixedCase = [].concat(
+    extensions,
     commands,
     constants,
     directives,
@@ -649,6 +654,7 @@ require('codemirror/addon/mode/simple.js');
 
   window.keywords = {
     all,
+    extensions,
     commands,
     constants,
     directives,
@@ -663,6 +669,7 @@ require('codemirror/addon/mode/simple.js');
 (function () {
   var allReporters,
     closeBracket,
+    extensions,
     commands,
     commentRule,
     constantRule,
@@ -681,6 +688,7 @@ require('codemirror/addon/mode/simple.js');
     wordRegEx;
 
   ({
+    extensions,
     commands,
     constants,
     directives,
@@ -753,6 +761,10 @@ require('codemirror/addon/mode/simple.js');
       },
       {
         token: 'keyword',
+        regex: memberRegEx(extensions),
+      },
+      {
+        token: 'keyword',
         regex: wordRegEx(`${wordCh}*-own`),
       },
       {
@@ -783,15 +795,3 @@ require('codemirror/addon/mode/simple.js');
     },
   });
 }.call(this));
-
-// ;(function($, undefined){
-//   $.fn.asOverlay = function(Timeout = 3000, Animation = 300) {
-//     this.Hide = () => this.fadeOut(Animation);
-//     this.Show = () => {
-//       clearTimeout(this.timeout);
-//       this.timeout = setTimeout(() => this.fadeOut(Animation), Timeout);
-//       this.fadeIn(Animation);
-//     }
-//     return this;
-//   }
-// })(Zepto)

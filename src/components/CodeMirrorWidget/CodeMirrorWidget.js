@@ -3,10 +3,13 @@ import { Form } from 'semantic-ui-react';
 import 'codemirror/addon/selection/active-line';
 import 'codemirror/addon/edit/matchbrackets';
 import 'codemirror/addon/edit/trailingspace';
+import 'codemirror/addon/hint/show-hint';
+import 'codemirror/addon/hint/show-hint.css';
 import 'codemirror/lib/codemirror.css';
 import { Controlled as CodeMirror } from 'react-codemirror2';
 import './code-mirror-widget.css';
 require('../../lib/netlogo.js');
+require('../../lib/netlogo-hint.js');
 require('../../lib/netlogo.css');
 
 const CodeMirrorWidget = (props) => {
@@ -31,9 +34,17 @@ const CodeMirrorWidget = (props) => {
             matchBrackets: true,
             showTrailingSpace: true,
             viewportMargin: Infinity,
+            extraKeys: { 'Ctrl-Space': 'autocomplete' },
           }}
           onBeforeChange={(editor, data, value) => {
             _onChange(value);
+            const reg = /[a-z0-9_]/i;
+            const { origin, text } = data;
+            if (origin === '+input' && (reg.test(text) || text[0] === ':')) {
+              editor.showHint({
+                completeSingle: false,
+              });
+            }
           }}
         />
       </Form.Field>
