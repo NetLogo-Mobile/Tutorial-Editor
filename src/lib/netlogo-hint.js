@@ -61,9 +61,9 @@
   }
   CodeMirror.registerHelper('hint', 'netlogo', netlogoHint);
 
-  var netlogoKeywords = window.keywords.all.filter(
-    (word) => !window.keywords.unsupported.includes(word),
-  );
+  var netlogoKeywords = window.keywords.all
+    .filter((word) => !window.keywords.unsupported.includes(word))
+    .map((word) => word.replace('\\', ''));
 
   function getCompletions(token, context, keywords, options) {
     var found = [],
