@@ -638,7 +638,6 @@ require('codemirror/addon/mode/simple.js');
   ];
 
   allMixedCase = [].concat(
-    extensions,
     commands,
     constants,
     directives,
@@ -654,7 +653,6 @@ require('codemirror/addon/mode/simple.js');
 
   window.keywords = {
     all,
-    extensions,
     commands,
     constants,
     directives,
@@ -669,7 +667,6 @@ require('codemirror/addon/mode/simple.js');
 (function () {
   var allReporters,
     closeBracket,
-    extensions,
     commands,
     commentRule,
     constantRule,
@@ -688,7 +685,6 @@ require('codemirror/addon/mode/simple.js');
     wordRegEx;
 
   ({
-    extensions,
     commands,
     constants,
     directives,
@@ -758,10 +754,6 @@ require('codemirror/addon/mode/simple.js');
       {
         token: 'keyword',
         regex: memberRegEx(directives),
-      },
-      {
-        token: 'keyword',
-        regex: memberRegEx(extensions),
       },
       {
         token: 'keyword',
