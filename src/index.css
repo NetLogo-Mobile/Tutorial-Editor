@@ -16,8 +16,12 @@ h5.ui.header {
   font-size: 1.6rem;
 }
 
+.array-item .fields h5.ui.header {
+  font-size: 1.5rem !important;
+}
+
 .array-item .ui.grid .sixteen.wide.column {
-  border-bottom: 1px dashed #ccc;
+  margin-top: 1rem;
   margin-bottom: 1rem;
   padding-bottom: 1rem;
 }
@@ -33,4 +37,128 @@ h5.ui.header {
 .array-item .fields h5.ui.header,
 .array-item .array-item h5.ui.header {
   font-size: 1.2rem;
+}
+
+.ui.grid > .column:not(.row),
+.ui.grid > .row > .column {
+  padding-left: 2rem;
+}
+
+/* Customed Semantic UI button */
+.ui.purple.button,
+.ui.purple.buttons .button {
+  background-color: #864590;
+  color: #fff;
+  text-shadow: none;
+  background-image: none;
+}
+
+.ui.purple.button:hover,
+.ui.purple.buttons .button:hover {
+  background-color: #6d2d77;
+  color: #fff;
+  text-shadow: none;
+}
+
+.ui.purple.button:focus,
+.ui.purple.buttons .button:focus {
+  background-color: #864590;
+  color: #fff;
+  text-shadow: none;
+}
+
+.ui.yellow.button,
+.ui.yellow.buttons .button {
+  background-color: #fcbc40;
+  color: #fff;
+  text-shadow: none;
+  background-image: none;
+}
+
+.ui.yellow.button:hover,
+.ui.yellow.buttons .button:hover {
+  background-color: #e5a429;
+  color: #fff;
+  text-shadow: none;
+}
+
+.ui.yellow.button:focus,
+.ui.yellow.buttons .button:focus {
+  background-color: #fcbc40;
+  color: #fff;
+  text-shadow: none;
+}
+
+.ui.violet.button,
+.ui.violet.buttons .button {
+  background-color: #2366c2;
+  color: #fff;
+  text-shadow: none;
+  background-image: none;
+}
+
+.ui.violet.button:hover,
+.ui.violet.buttons .button:hover {
+  background-color: #0d3774;
+  color: #fff;
+  text-shadow: none;
+}
+
+.ui.violet.button:focus,
+.ui.violet.buttons .button:focus {
+  background-color: #2366c2;
+  color: #fff;
+  text-shadow: none;
+}
+
+.ui.orange.button,
+.ui.orange.buttons .button {
+  background-color: #f59249;
+  color: #fff;
+  text-shadow: none;
+  background-image: none;
+}
+
+.ui.orange.button:hover,
+.ui.orange.buttons .button:hover {
+  background-color: #da7a33;
+  color: #fff;
+  text-shadow: none;
+}
+
+.ui.orange.button:focus,
+.ui.orange.buttons .button:focus {
+  background-color: #f59249;
+  color: #fff;
+  text-shadow: none;
+}
+
+.ui.blue.button,
+.ui.blue.buttons .button {
+  background-color: #5e92f3;
+  color: #fff;
+  text-shadow: none;
+  background-image: none;
+}
+
+.ui.blue.button:hover,
+.ui.blue.buttons .button:hover {
+  background-color: #216bbf;
+  color: #fff;
+  text-shadow: none;
+}
+
+.ui.teal.button,
+.ui.teal.buttons .button {
+  background-color: #5bd0e6;
+  color: #fff;
+  text-shadow: none;
+  background-image: none;
+}
+
+.ui.teal.button:hover,
+.ui.teal.buttons .button:hover {
+  background-color: #dbb86e;
+  color: #fff;
+  text-shadow: none;
 }

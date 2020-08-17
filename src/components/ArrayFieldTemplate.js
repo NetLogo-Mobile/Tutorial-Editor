@@ -8,6 +8,41 @@ import { cleanClassNames, getSemanticProps, MaybeWrap } from './util';
 
 const { isFixedItems } = utils;
 
+const pickColor = (title) => {
+  switch (title) {
+    case 'Sections':
+    case 'Section':
+      return 'violet';
+    case 'Handlers':
+    case 'Handler':
+      return 'purple';
+    case 'Dialogs':
+    case 'Dialog':
+      return 'violet';
+    case 'Buttons':
+    case 'Button':
+      return 'orange';
+    case 'Actions':
+    case 'Action':
+      return 'yellow';
+    default:
+      return 'grey';
+  }
+};
+
+const transformColor = (colorName) => {
+  switch (colorName) {
+    case 'violet':
+      return 'rgb(35, 102, 194, 0.6';
+    case 'purple':
+      return 'rgb(134, 69, 144. 0.6)';
+    case 'orange':
+      return '#F59249';
+    case 'yellow':
+      return 'FCBC40';
+  }
+};
+
 const ArrayFieldTitle = ({ TitleField, idSchema, uiSchema, title }) => {
   if (!title) {
     return null;
@@ -40,6 +75,9 @@ function isInitialArrayItem(props) {
 
 // Used in the two templates
 function DefaultArrayItem(props) {
+  const { uiSchema } = props.children.props;
+  const fieldTitle = uiSchema['ui:title'];
+  const color = transformColor(pickColor(fieldTitle));
   return (
     <div className="array-item" key={props.key}>
       <MaybeWrap wrap={props.wrapItem} component={Segment}>
@@ -59,6 +97,7 @@ function DefaultArrayItem(props) {
                       icon="angle up"
                       className="array-item-move-up"
                       tabIndex="-1"
+                      color={pickColor(fieldTitle)}
                       disabled={
                         props.disabled || props.readOnly || !props.hasMoveUp
                       }
@@ -74,6 +113,7 @@ function DefaultArrayItem(props) {
                       icon="angle down"
                       className="array-item-move-down"
                       tabIndex="-1"
+                      color={pickColor(fieldTitle)}
                       disabled={
                         props.disabled || props.readOnly || !props.hasMoveDown
                       }
@@ -84,11 +124,23 @@ function DefaultArrayItem(props) {
                     />
                   )}
 
+                  {props.canAdd && (
+                    <Button
+                      icon="add"
+                      className="array-item-add"
+                      tabIndex="-1"
+                      color={pickColor(fieldTitle)}
+                      disabled={props.disabled || props.readOnly}
+                      onClick={props.onAddIndexClick(props.index + 1)}
+                    />
+                  )}
+
                   {props.hasRemove && (
                     <Button
                       icon="trash"
                       className="array-item-remove"
                       tabIndex="-1"
+                      color={pickColor(fieldTitle)}
                       disabled={props.disabled || props.readOnly}
                       onClick={props.onDropIndexClick(props.index)}
                     />
@@ -98,11 +150,34 @@ function DefaultArrayItem(props) {
             </Grid.Column>
           )}
 
-          <Grid.Column width={16} verticalAlign="middle">
+          <Grid.Column
+            width={16}
+            verticalAlign="middle"
+            style={{
+              borderLeft: `3px solid ${color}`,
+              borderBottom: `1px dashed ${color}`,
+            }}
+          >
             {props.children}
           </Grid.Column>
         </Grid>
       </MaybeWrap>
+      {props.canAdd && props.hasMoveDown && (
+        <div
+          style={{
+            marginTop: '1rem',
+            position: 'relative',
+            textAlign: 'right',
+          }}
+        >
+          <AddButton
+            onClick={props.onAddIndexClick(props.index + 1)}
+            disabled={props.disabled || props.readOnly}
+            title={`Add ${fieldTitle}`}
+            color={pickColor(fieldTitle)}
+          />
+        </div>
+      )}
     </div>
   );
 }
@@ -127,6 +202,7 @@ function DefaultFixedArrayFieldTemplate({
 }) {
   const fieldTitle = uiSchema['ui:title'] || title;
   const fieldDescription = uiSchema['ui:description'] || schema.description;
+  const fieldChildren = uiSchema['ui:children'] || 'Item';
 
   return (
     <div className={cleanClassNames([className, classNames])}>
@@ -161,7 +237,11 @@ function DefaultFixedArrayFieldTemplate({
               textAlign: 'right',
             }}
           >
-            <AddButton onClick={onAddClick} disabled={disabled || readOnly} />
+            <AddButton
+              onClick={onAddClick}
+              disabled={disabled || readOnly}
+              color={pickColor(fieldChildren)}
+            />
           </div>
         )}
       </div>
@@ -208,7 +288,8 @@ function DefaultNormalArrayFieldTemplate({
 
       <div key={`array-item-list-${idSchema.$id}`}>
         <div className="row array-item-list">
-          {items && items.map((p) => DefaultArrayItem({ ...p, ...itemProps }))}
+          {items &&
+            items.map((p) => DefaultArrayItem({ ...p, ...itemProps, canAdd }))}
         </div>
 
         {canAdd && (
@@ -223,6 +304,7 @@ function DefaultNormalArrayFieldTemplate({
               onClick={onAddClick}
               disabled={disabled || readOnly}
               title={`Add ${fieldChildren}`}
+              color={pickColor(fieldChildren)}
             />
           </div>
         )}

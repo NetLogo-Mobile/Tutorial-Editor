@@ -106,7 +106,7 @@ function App() {
                   Load
                 </Button>
                 <Button.Or />
-                <Button positive onClick={onClickDownload}>
+                <Button positive color="violet" onClick={onClickDownload}>
                   <i className="download icon" />
                   Save
                 </Button>
