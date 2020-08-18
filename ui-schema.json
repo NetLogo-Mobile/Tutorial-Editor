@@ -19,22 +19,21 @@
         }
       },
       "Filter": {
+        "ui:widget": "codeMirror",
         "ui:options": {
-          "semantic": {
-            "placeholder": "This reporter will determine whether the section is available for `forward` or `back` command to activate."
-          }
+          "placeholder": "A NetLogo reporter to determine whether this action will be fired."
         }
       },
       "Initializer": {
         "ui:widget": "codeMirror",
         "ui:options": {
-          "placeholder": "NetLogo code here will be executed\n;;when the section is being activated."
+          "placeholder": "NetLogo code here will be executed when the section is being activated."
         }
       },
       "Finalizer": {
         "ui:widget": "codeMirror",
         "ui:options": {
-          "placeholder": "NetLogo code here will be executed\n;;when the section is being de-activated."
+          "placeholder": "NetLogo code here will be executed when the section is being de-activated."
         }
       },
       "Handlers": {
@@ -66,16 +65,15 @@
             }
           },
           "Filter": {
+            "ui:widget": "codeMirror",
             "ui:options": {
-              "semantic": {
-                "placeholder": "A NetLogo reporter to determine whether this event handler will be fired."
-              }
+              "placeholder": "A NetLogo reporter to determine whether this event handler will be fired."
             }
           },
           "Callback": {
             "ui:widget": "codeMirror",
             "ui:options": {
-              "placeholder": "NetLogo code here will be executed\n;;when the conditions are met and the filter returns true."
+              "placeholder": "NetLogo code here will be executed when the conditions are met and the filter returns true."
             }
           },
           "Repeated": {
@@ -143,10 +141,9 @@
             }
           },
           "Filter": {
+            "ui:widget": "codeMirror",
             "ui:options": {
-              "semantic": {
-                "placeholder": "A NetLogo reporter to determine whether this button will be displayed."
-              }
+              "placeholder": "A NetLogo reporter to determine whether this action will be fired."
             }
           },
           "Handlers": {
@@ -155,16 +152,15 @@
             "items": {
               "ui:title": "Action",
               "Filter": {
+                "ui:widget": "codeMirror",
                 "ui:options": {
-                  "semantic": {
-                    "placeholder": "A NetLogo reporter to determine whether this action will be fired."
-                  }
+                  "placeholder": "A NetLogo reporter to determine whether this action will be fired."
                 }
               },
               "Callback": {
                 "ui:widget": "codeMirror",
                 "ui:options": {
-                  "placeholder": "NetLogo code here will be executed\n;;when the button is clicked and the filter returns true."
+                  "placeholder": "NetLogo code here will be executed when the button is clicked and the filter returns true."
                 }
               },
               "Repeated": {
@@ -216,16 +212,15 @@
             }
           },
           "Filter": {
+            "ui:widget": "codeMirror",
             "ui:options": {
-              "semantic": {
-                "placeholder": "A NetLogo reporter to determine whether this event handler will be fired."
-              }
+              "placeholder": "A NetLogo reporter to determine whether this action will be fired."
             }
           },
           "Callback": {
             "ui:widget": "codeMirror",
             "ui:options": {
-              "placeholder": "NetLogo code here will be executed\n;;when the conditions are met and the filter returns true."
+              "placeholder": "NetLogo code here will be executed when the conditions are met and the filter returns true."
             }
           },
           "Repeated": {
