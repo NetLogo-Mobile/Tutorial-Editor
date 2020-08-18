@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types,react/destructuring-assignment */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Button, Grid, Segment } from 'semantic-ui-react';
+import { Button, Grid, Segment, Popup } from 'semantic-ui-react';
 import { utils } from '@rjsf/core';
 import AddButton from './AddButton';
 import { cleanClassNames, getSemanticProps, MaybeWrap } from './util';
@@ -37,7 +37,7 @@ const transformColor = (colorName) => {
     case 'purple':
       return 'rgb(134, 69, 144. 0.6)';
     case 'orange':
-      return '#F59249';
+      return 'rgb(245, 146, 73, 0.6)';
     case 'yellow':
       return 'FCBC40';
   }
@@ -92,57 +92,89 @@ function DefaultArrayItem(props) {
             <Grid.Column>
               {(props.hasMoveUp || props.hasMoveDown || props.hasRemove) && (
                 <Button.Group size="mini" vertical={!props.horizontalButtons}>
-                  {(props.hasMoveUp || props.hasMoveDown) && (
-                    <Button
-                      icon="angle up"
-                      className="array-item-move-up"
-                      tabIndex="-1"
-                      color={pickColor(fieldTitle)}
-                      disabled={
-                        props.disabled || props.readOnly || !props.hasMoveUp
-                      }
-                      onClick={props.onReorderClick(
-                        props.index,
-                        props.index - 1,
-                      )}
-                    />
-                  )}
-
-                  {(props.hasMoveUp || props.hasMoveDown) && (
-                    <Button
-                      icon="angle down"
-                      className="array-item-move-down"
-                      tabIndex="-1"
-                      color={pickColor(fieldTitle)}
-                      disabled={
-                        props.disabled || props.readOnly || !props.hasMoveDown
-                      }
-                      onClick={props.onReorderClick(
-                        props.index,
-                        props.index + 1,
-                      )}
-                    />
-                  )}
-
                   {props.canAdd && (
-                    <Button
-                      icon="add"
-                      className="array-item-add"
-                      tabIndex="-1"
-                      color={pickColor(fieldTitle)}
-                      disabled={props.disabled || props.readOnly}
-                      onClick={props.onAddIndexClick(props.index + 1)}
+                    <Popup
+                      content={`Add ${fieldTitle} above`}
+                      trigger={
+                        <Button
+                          icon="add"
+                          className="array-item-add"
+                          tabIndex="-1"
+                          color={pickColor(fieldTitle)}
+                          disabled={props.disabled || props.readOnly}
+                          onClick={props.onAddIndexClick(props.index + 1)}
+                          style={{ marginBottom: '8px' }}
+                        />
+                      }
+                      position="top right"
+                      size="tiny"
+                    />
+                  )}
+
+                  {(props.hasMoveUp || props.hasMoveDown) && (
+                    <Popup
+                      content={`Move up`}
+                      trigger={
+                        <Button
+                          icon="angle double up"
+                          className="array-item-move-up"
+                          tabIndex="-1"
+                          color={pickColor(fieldTitle)}
+                          disabled={
+                            props.disabled || props.readOnly || !props.hasMoveUp
+                          }
+                          onClick={props.onReorderClick(
+                            props.index,
+                            props.index - 1,
+                          )}
+                        />
+                      }
+                      position="left center"
+                      size="tiny"
+                    />
+                  )}
+
+                  {(props.hasMoveUp || props.hasMoveDown) && (
+                    <Popup
+                      content={`Move down`}
+                      trigger={
+                        <Button
+                          icon="angle double down"
+                          className="array-item-move-down"
+                          tabIndex="-1"
+                          color={pickColor(fieldTitle)}
+                          disabled={
+                            props.disabled ||
+                            props.readOnly ||
+                            !props.hasMoveDown
+                          }
+                          onClick={props.onReorderClick(
+                            props.index,
+                            props.index + 1,
+                          )}
+                        />
+                      }
+                      position="left center"
+                      size="tiny"
                     />
                   )}
 
                   {props.hasRemove && (
-                    <Button
-                      icon="trash"
-                      className="array-item-remove"
-                      tabIndex="-1"
-                      color={pickColor(fieldTitle)}
-                      disabled={props.disabled || props.readOnly}
-                      onClick={props.onDropIndexClick(props.index)}
+                    <Popup
+                      content={`Remove ${fieldTitle}`}
+                      trigger={
+                        <Button
+                          icon="trash alternate"
+                          className="array-item-remove"
+                          tabIndex="-1"
+                          color={pickColor(fieldTitle)}
+                          disabled={props.disabled || props.readOnly}
+                          onClick={props.onDropIndexClick(props.index)}
+                          style={{ marginTop: '8px', opacity: '0.8' }}
+                        />
+                      }
+                      position="bottom right"
+                      size="tiny"
                     />
                   )}
                 </Button.Group>

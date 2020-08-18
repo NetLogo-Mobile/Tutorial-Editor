@@ -21,6 +21,7 @@ h5.ui.header {
 }
 
 .array-item .ui.grid .sixteen.wide.column {
+  border-bottom: 1px dashed #ccc;
   margin-top: 1rem;
   margin-bottom: 1rem;
   padding-bottom: 1rem;
