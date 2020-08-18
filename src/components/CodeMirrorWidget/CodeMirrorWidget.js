@@ -3,6 +3,7 @@ import { Form } from 'semantic-ui-react';
 import 'codemirror/addon/selection/active-line';
 import 'codemirror/addon/edit/matchbrackets';
 import 'codemirror/addon/edit/trailingspace';
+import 'codemirror/addon/display/placeholder';
 import 'codemirror/addon/hint/show-hint';
 import 'codemirror/addon/hint/show-hint.css';
 import 'codemirror/lib/codemirror.css';
@@ -14,7 +15,10 @@ require('../../lib/netlogo.css');
 
 const CodeMirrorWidget = (props) => {
   const { placeholder, options, onChange, required, value, label } = props;
-  const defaultComments = `;;${placeholder}\n` || `;;To write netlogo code`;
+  const defaultComments =
+    label === 'Initializer' || label === 'Finalizer'
+      ? `;;${placeholder}\n` || `;;To write netlogo code`
+      : '';
   const _onChange = (value) => {
     onChange && onChange(value === '' ? options.emptyValue : value);
   };
@@ -35,6 +39,7 @@ const CodeMirrorWidget = (props) => {
             showTrailingSpace: true,
             viewportMargin: Infinity,
             extraKeys: { 'Ctrl-Space': 'autocomplete' },
+            placeholder: placeholder,
           }}
           onBeforeChange={(editor, data, value) => {
             _onChange(value);

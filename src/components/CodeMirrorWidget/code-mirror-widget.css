@@ -3,3 +3,7 @@
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', Courier,
     monospace;
 }
+
+.CodeMirror pre.CodeMirror-placeholder {
+  color: #999;
+}

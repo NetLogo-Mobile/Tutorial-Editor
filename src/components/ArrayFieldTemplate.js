@@ -170,7 +170,7 @@ function DefaultArrayItem(props) {
                           color={pickColor(fieldTitle)}
                           disabled={props.disabled || props.readOnly}
                           onClick={props.onDropIndexClick(props.index)}
-                          style={{ marginTop: '8px', opacity: '0.8' }}
+                          style={{ marginTop: '8px', opacity: '0.7' }}
                         />
                       }
                       position="bottom right"
