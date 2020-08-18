@@ -84,14 +84,18 @@ function DefaultArrayItem(props) {
         <Grid
           style={
             !isInitialArrayItem(props)
-              ? { ...gridStyle(!props.horizontalButtons), alignItems: 'center' }
+              ? { ...gridStyle(!props.horizontalButtons) }
               : gridStyle(!props.horizontalButtons)
           }
         >
           {props.hasToolbar && (
             <Grid.Column>
               {(props.hasMoveUp || props.hasMoveDown || props.hasRemove) && (
-                <Button.Group size="mini" vertical={!props.horizontalButtons}>
+                <Button.Group
+                  size="mini"
+                  vertical={!props.horizontalButtons}
+                  style={{ marginTop: '14px' }}
+                >
                   {props.canAdd && (
                     <Popup
                       content={`Add ${fieldTitle} above`}
