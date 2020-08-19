@@ -21,7 +21,7 @@
       "Filter": {
         "ui:widget": "codeMirror",
         "ui:options": {
-          "placeholder": "A NetLogo reporter to determine whether this action will be fired."
+          "placeholder": "A NetLogo reporter to determine whether this button will be shown."
         }
       },
       "Initializer": {
@@ -67,7 +67,7 @@
           "Filter": {
             "ui:widget": "codeMirror",
             "ui:options": {
-              "placeholder": "A NetLogo reporter to determine whether this event handler will be fired."
+              "placeholder": "A NetLogo reporter to determine whether this button will be shown."
             }
           },
           "Callback": {
@@ -143,7 +143,7 @@
           "Filter": {
             "ui:widget": "codeMirror",
             "ui:options": {
-              "placeholder": "A NetLogo reporter to determine whether this action will be fired."
+              "placeholder": "A NetLogo reporter to determine whether this button will be shown."
             }
           },
           "Handlers": {
@@ -154,7 +154,7 @@
               "Filter": {
                 "ui:widget": "codeMirror",
                 "ui:options": {
-                  "placeholder": "A NetLogo reporter to determine whether this action will be fired."
+                  "placeholder": "A NetLogo reporter to determine whether this button will be shown."
                 }
               },
               "Callback": {
@@ -214,7 +214,7 @@
           "Filter": {
             "ui:widget": "codeMirror",
             "ui:options": {
-              "placeholder": "A NetLogo reporter to determine whether this action will be fired."
+              "placeholder": "A NetLogo reporter to determine whether this button will be shown."
             }
           },
           "Callback": {
