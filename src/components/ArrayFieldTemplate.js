@@ -198,25 +198,6 @@ function DefaultArrayItem(props) {
           </Grid.Column>
         </Grid>
       </MaybeWrap>
-      {props.canAdd &&
-        props.hasMoveDown &&
-        fieldTitle !== 'Action' &&
-        fieldTitle !== 'Handler' && (
-          <div
-            style={{
-              marginTop: '1rem',
-              position: 'relative',
-              textAlign: 'right',
-            }}
-          >
-            <AddButton
-              onClick={props.onAddIndexClick(props.index + 1)}
-              disabled={props.disabled || props.readOnly}
-              title={`Add ${fieldTitle}`}
-              color={pickColor(fieldTitle)}
-            />
-          </div>
-        )}
     </div>
   );
 }
