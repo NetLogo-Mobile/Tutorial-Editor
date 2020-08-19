@@ -106,7 +106,7 @@ function DefaultArrayItem(props) {
                           tabIndex="-1"
                           color={pickColor(fieldTitle)}
                           disabled={props.disabled || props.readOnly}
-                          onClick={props.onAddIndexClick(props.index + 1)}
+                          onClick={props.onAddIndexClick(props.index)}
                           style={{ marginBottom: '8px' }}
                         />
                       }

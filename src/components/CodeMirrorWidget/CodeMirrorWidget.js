@@ -27,7 +27,7 @@ const CodeMirrorWidget = (props) => {
       <Form.Field required={required}>
         <label>{label}</label>
         <CodeMirror
-          value={value || defaultComments}
+          value={value || ''}
           options={{
             mode: 'netlogo',
             theme: 'netlogo-default',
