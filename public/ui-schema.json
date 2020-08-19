@@ -143,7 +143,13 @@
           "Filter": {
             "ui:widget": "codeMirror",
             "ui:options": {
-              "placeholder": "A NetLogo reporter to determine whether this button will be fired."
+              "placeholder": "A NetLogo reporter to determine whether this button will be displayed."
+            }
+          },
+          "Callback": {
+            "ui:widget": "codeMirror",
+            "ui:options": {
+              "placeholder": "NetLogo code here will be executed when the button is clicked."
             }
           },
           "Handlers": {

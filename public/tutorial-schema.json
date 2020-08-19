@@ -211,6 +211,9 @@
         "Filter": {
           "type": "string"
         },
+        "Callback": {
+          "type": "string"
+        },
         "Behavior": {
           "$ref": "#/definitions/ButtonBehavior",
           "default": 2
