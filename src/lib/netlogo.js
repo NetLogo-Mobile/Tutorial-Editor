@@ -238,6 +238,8 @@ require('codemirror/addon/mode/simple.js');
     'tutorial:set',
     'tutorial:activate',
     'tutorial:deactivate',
+    'tutorial:back',
+    'tutorial:forward',
     'widget:show',
     'widget:hide',
     'widget:move',
