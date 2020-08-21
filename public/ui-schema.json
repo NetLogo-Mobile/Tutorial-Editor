@@ -42,10 +42,12 @@
         "items": {
           "ui:title": "Handler",
           "Category": {
+            "widget": "SelectWidget",
             "ui:options": {
               "semantic": {
+                "label": "Category",
                 "selection": true,
-                "placeholder": "Select a Category",
+                "placeholder": "What kind of events it is listening",
                 "header": "What kind of events it is listening"
               }
             }
@@ -60,7 +62,7 @@
           "Type": {
             "ui:options": {
               "semantic": {
-                "placeholder": "Type of events it is listening. Please look at the documentation for details. "
+                "placeholder": "Type of events it is listening. Please look at the documentation for details."
               }
             }
           },
@@ -114,10 +116,13 @@
         }
       },
       "Type": {
+        "widget": "SelectWidget",
         "ui:options": {
           "semantic": {
+            "label": "Type",
             "selection": true,
-            "header": "How the dialog is presented to the user"
+            "header": "How the dialog is presented to the user",
+            "placeholder": "How the dialog is presented to the user"
           }
         }
       },
@@ -133,10 +138,13 @@
             }
           },
           "Style": {
+            "widget": "SelectWidget",
             "ui:options": {
               "semantic": {
+                "label": "Style",
                 "selection": true,
-                "header": "What will it looks like"
+                "header": "What will it looks like",
+                "placeholder": "What will it looks like"
               }
             }
           },
@@ -179,10 +187,13 @@
             }
           },
           "Behavior": {
+            "widget": "SelectWidget",
             "ui:options": {
               "semantic": {
+                "label": "Behavior",
                 "selection": true,
-                "header": "What will happen to the dialog when it is clicked"
+                "header": "What will happen to the dialog when it is clicked",
+                "placeholder": "What will happen to the dialog when it is clicked"
               }
             }
           },
@@ -195,10 +206,12 @@
         "items": {
           "ui:title": "Handler",
           "Category": {
+            "widget": "SelectWidget",
             "ui:options": {
               "semantic": {
+                "label": "Category",
                 "selection": true,
-                "placeholder": "Select a Category",
+                "placeholder": "What kind of events it is listening",
                 "header": "What kind of events it is listening"
               }
             }
@@ -213,7 +226,7 @@
           "Type": {
             "ui:options": {
               "semantic": {
-                "placeholder": "Type of events it is listening. Please look at the documentation for details. "
+                "placeholder": "Type of events it is listening. Please look at the documentation for details."
               }
             }
           },
@@ -240,18 +253,24 @@
         }
       },
       "Anchor": {
+        "widget": "SelectWidget",
         "ui:options": {
           "semantic": {
+            "label": "Anchor",
             "selection": true,
-            "header": "Where the dialog is anchored"
+            "header": "Where the dialog is anchored",
+            "placeholder": "Where the dialog is anchored"
           }
         }
       },
       "DismissBehavior": {
+        "widget": "SelectWidget",
         "ui:options": {
           "semantic": {
+            "label": "Dismiss Behavior",
             "selection": true,
-            "header": "What will happen when it is dismissed by the user"
+            "header": "What will happen when it is dismissed by the user",
+            "placeholder": "What will happen when it is dismissed by the user"
           }
         }
       },
