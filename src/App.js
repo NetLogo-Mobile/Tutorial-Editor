@@ -12,6 +12,8 @@ function App() {
   const [schema, setSchema] = useState({});
   const [uiSchema, setUISchema] = useState({});
   const [tutorialData, setTutorialData] = useState({});
+  const [fileUpload, setFileUpload] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const widgets = {
     codeMirror: CodeMirrorWidget,
@@ -33,6 +35,13 @@ function App() {
       });
   }, []);
 
+  useEffect(() => {
+    if (fileUpload) {
+      setLoading(false);
+      setFileUpload(null);
+    }
+  }, [loading, fileUpload]);
+
   const downloadFormData = ({ formData }) => {
     const dataStr = `data:text/json;charset=utf-8, ${encodeURIComponent(
       JSON.stringify(formData, 0, 2),
@@ -50,12 +59,14 @@ function App() {
       return;
     }
 
+    setLoading(true);
     const file = files[0];
     const reader = new FileReader();
 
     reader.onload = (event) => {
       const json = JSON.parse(event.target.result);
       setTutorialData(json);
+      setFileUpload(file);
     };
     reader.readAsText(file);
   };
@@ -101,7 +112,7 @@ function App() {
           <Grid.Column width="4">
             <div className="tool_container">
               <Button.Group fluid>
-                <Button onClick={onClickUpload}>
+                <Button loading={loading} onClick={onClickUpload}>
                   <i className="upload icon" />
                   Load
                 </Button>
