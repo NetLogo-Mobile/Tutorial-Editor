@@ -45,6 +45,12 @@ h5.ui.header {
   padding-left: 2rem;
 }
 
+.ui.menu.fluid,
+.ui.vertical.menu.fluid {
+  max-height: calc(100vh - 100px);
+  overflow: auto;
+}
+
 /* Customed Semantic UI button */
 .ui.purple.button,
 .ui.purple.buttons .button {
