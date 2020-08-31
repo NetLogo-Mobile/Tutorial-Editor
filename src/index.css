@@ -76,6 +76,11 @@ h5.ui.header {
   width: 80px;
 }
 
+.ui.form .grouped.equal.width.fields span[id*='root_'][id$='Name'] {
+  position: absolute;
+  top: -2.5rem;
+}
+
 /* Customed Semantic UI button */
 .ui.purple.button,
 .ui.purple.buttons .button {
