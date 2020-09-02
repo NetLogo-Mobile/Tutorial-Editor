@@ -12,30 +12,34 @@ const reorder = (list, startIndex, endIndex) => {
   return result;
 };
 
-const QuoteItem = styled.div`
+const ItemButton = styled.div`
   padding: 8px;
   padding-left: 0.93em;
+  display: block;
+  color: #333;
 `;
 
-function Item({ quote, index }) {
+function Item({ item, index }) {
   return (
-    <Draggable draggableId={quote.Name} index={index}>
+    <Draggable draggableId={item.Name} index={index}>
       {(provided) => (
-        <QuoteItem
+        <ItemButton
+          as="a"
+          href={`#root_Dialogs_${index}_Name`}
           ref={provided.innerRef}
           {...provided.draggableProps}
           {...provided.dragHandleProps}
         >
-          {quote.Name}
-        </QuoteItem>
+          {item.Name}
+        </ItemButton>
       )}
     </Draggable>
   );
 }
 
-const ItemList = React.memo(function ItemList({ quotes }) {
-  return quotes.map((quote: QuoteType, index: number) => (
-    <Item quote={quote} index={index} key={quote.Name} />
+const ItemList = React.memo(function ItemList({ items }) {
+  return items.map((item: QuoteType, index: number) => (
+    <Item item={item} index={index} key={item.Name} />
   ));
 });
 
@@ -49,13 +53,13 @@ const TutorialMenu = ({ tutorial, setTutorial, contextRef }) => {
       return;
     }
 
-    const quotes = reorder(
+    const items = reorder(
       tutorial.Sections,
       result.source.index,
       result.destination.index,
     );
 
-    setTutorial({ Sections: quotes, Dialogs: tutorial.Dialogs });
+    setTutorial({ Sections: items, Dialogs: tutorial.Dialogs });
   }
 
   function onDragDialogEnd(result) {
@@ -67,13 +71,13 @@ const TutorialMenu = ({ tutorial, setTutorial, contextRef }) => {
       return;
     }
 
-    const quotes = reorder(
+    const items = reorder(
       tutorial.Dialogs,
       result.source.index,
       result.destination.index,
     );
 
-    setTutorial({ Sections: tutorial.Sections, Dialogs: quotes });
+    setTutorial({ Sections: tutorial.Sections, Dialogs: items });
   }
 
   return (
@@ -86,7 +90,7 @@ const TutorialMenu = ({ tutorial, setTutorial, contextRef }) => {
               {(provided) => (
                 <div ref={provided.innerRef} {...provided.droppableProps}>
                   {tutorial.Sections ? (
-                    <ItemList quotes={tutorial.Sections} />
+                    <ItemList items={tutorial.Sections} />
                   ) : null}
                   {provided.placeholder}
                 </div>
@@ -103,7 +107,7 @@ const TutorialMenu = ({ tutorial, setTutorial, contextRef }) => {
               {(provided) => (
                 <div ref={provided.innerRef} {...provided.droppableProps}>
                   {tutorial.Dialogs ? (
-                    <ItemList quotes={tutorial.Dialogs} />
+                    <ItemList items={tutorial.Dialogs} />
                   ) : null}
                   {provided.placeholder}
                 </div>
