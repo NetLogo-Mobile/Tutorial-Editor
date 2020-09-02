@@ -122,7 +122,11 @@ function App() {
                   Save
                 </Button>
               </Button.Group>
-              <TutorialMenu tutorial={tutorialData} contextRef={contextRef} />
+              <TutorialMenu
+                tutorial={tutorialData}
+                setTutorial={setTutorialData}
+                contextRef={contextRef}
+              />
             </div>
           </Grid.Column>
         </Grid.Row>
