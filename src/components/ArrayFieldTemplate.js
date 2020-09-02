@@ -78,6 +78,35 @@ function DefaultArrayItem(props) {
   const { uiSchema } = props.children.props;
   const fieldTitle = uiSchema['ui:title'];
   const color = transformColor(pickColor(fieldTitle));
+
+  const moveUp = () => {
+    const anchor = document.createElement('a');
+    anchor.setAttribute(
+      'href',
+      `#root_${uiSchema['ui:title']}s_${props.index - 1}_Name`,
+    );
+
+    const reorder = props.onReorderClick(props.index, props.index - 1);
+    reorder();
+    setTimeout(function () {
+      anchor.click();
+    }, 0);
+  };
+
+  const moveDown = () => {
+    const anchor = document.createElement('a');
+    anchor.setAttribute(
+      'href',
+      `#root_${uiSchema['ui:title']}s_${props.index + 1}_Name`,
+    );
+
+    const reorder = props.onReorderClick(props.index, props.index + 1);
+    reorder();
+    setTimeout(function () {
+      anchor.click();
+    }, 0);
+  };
+
   return (
     <div className="array-item" key={props.key}>
       <MaybeWrap wrap={props.wrapItem} component={Segment}>
@@ -120,6 +149,7 @@ function DefaultArrayItem(props) {
                       content={`Move up`}
                       trigger={
                         <Button
+                          type="button"
                           icon="angle double up"
                           className="array-item-move-up"
                           tabIndex="-1"
@@ -127,10 +157,7 @@ function DefaultArrayItem(props) {
                           disabled={
                             props.disabled || props.readOnly || !props.hasMoveUp
                           }
-                          onClick={props.onReorderClick(
-                            props.index,
-                            props.index - 1,
-                          )}
+                          onClick={moveUp}
                         />
                       }
                       position="left center"
@@ -143,6 +170,7 @@ function DefaultArrayItem(props) {
                       content={`Move down`}
                       trigger={
                         <Button
+                          type="button"
                           icon="angle double down"
                           className="array-item-move-down"
                           tabIndex="-1"
@@ -152,10 +180,7 @@ function DefaultArrayItem(props) {
                             props.readOnly ||
                             !props.hasMoveDown
                           }
-                          onClick={props.onReorderClick(
-                            props.index,
-                            props.index + 1,
-                          )}
+                          onClick={moveDown}
                         />
                       }
                       position="left center"
