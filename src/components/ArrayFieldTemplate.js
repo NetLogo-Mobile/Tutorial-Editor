@@ -80,30 +80,32 @@ function DefaultArrayItem(props) {
   const color = transformColor(pickColor(fieldTitle));
 
   const moveUp = () => {
-    const anchor = document.createElement('a');
-    anchor.setAttribute(
-      'href',
-      `#root_${uiSchema['ui:title']}s_${props.index - 1}_Name`,
-    );
-
     const reorder = props.onReorderClick(props.index, props.index - 1);
     reorder();
     setTimeout(function () {
-      anchor.click();
+      const id = `root_${uiSchema['ui:title']}s_${props.index - 1}_Name`;
+      const $anchor = document.getElementById(id);
+      const offsetTop =
+        $anchor.getBoundingClientRect().top + window.pageYOffset;
+      window.scroll({
+        top: offsetTop,
+        behavior: 'smooth',
+      });
     }, 0);
   };
 
   const moveDown = () => {
-    const anchor = document.createElement('a');
-    anchor.setAttribute(
-      'href',
-      `#root_${uiSchema['ui:title']}s_${props.index + 1}_Name`,
-    );
-
     const reorder = props.onReorderClick(props.index, props.index + 1);
     reorder();
     setTimeout(function () {
-      anchor.click();
+      const id = `root_${uiSchema['ui:title']}s_${props.index + 1}_Name`;
+      const $anchor = document.getElementById(id);
+      const offsetTop =
+        $anchor.getBoundingClientRect().top + window.pageYOffset;
+      window.scroll({
+        top: offsetTop,
+        behavior: 'smooth',
+      });
     }, 0);
   };
 

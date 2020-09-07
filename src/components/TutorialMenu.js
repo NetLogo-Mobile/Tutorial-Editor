@@ -24,12 +24,24 @@ const ItemButton = styled.div`
 `;
 
 function Item({ item, index, category }) {
+  const smoothScroll = (e) => {
+    const id = e.currentTarget.getAttribute('href').slice(1);
+    const $anchor = document.getElementById(id);
+    const offsetTop = $anchor.getBoundingClientRect().top + window.pageYOffset;
+    e.preventDefault();
+    window.scroll({
+      top: offsetTop,
+      behavior: 'smooth',
+    });
+  };
+
   return (
     <Draggable draggableId={`${category}-${item.Name}`} index={index}>
       {(provided) => (
         <ItemButton
           as="a"
           href={`#root_${category}_${index}_Name`}
+          onClick={smoothScroll}
           ref={provided.innerRef}
           {...provided.draggableProps}
           {...provided.dragHandleProps}
@@ -67,6 +79,18 @@ const TutorialMenu = ({ tutorial, setTutorial }) => {
     );
 
     setTutorial(reorderedTutorial);
+
+    setTimeout(function () {
+      const $anchor = document.getElementById(
+        `root_${category}_${result.destination.index}_Name`,
+      );
+      const offsetTop =
+        $anchor.getBoundingClientRect().top + window.pageYOffset;
+      window.scroll({
+        top: offsetTop,
+        behavior: 'smooth',
+      });
+    }, 0);
   }
 
   return (
