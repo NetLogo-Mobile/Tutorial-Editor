@@ -79,26 +79,11 @@ function DefaultArrayItem(props) {
   const fieldTitle = uiSchema['ui:title'];
   const color = transformColor(pickColor(fieldTitle));
 
-  const moveUp = () => {
-    const reorder = props.onReorderClick(props.index, props.index - 1);
+  const reorder = (source, destination) => {
+    const reorder = props.onReorderClick(source, destination);
     reorder();
     setTimeout(function () {
-      const id = `root_${uiSchema['ui:title']}s_${props.index - 1}_Name`;
-      const $anchor = document.getElementById(id);
-      const offsetTop =
-        $anchor.getBoundingClientRect().top + window.pageYOffset;
-      window.scroll({
-        top: offsetTop,
-        behavior: 'smooth',
-      });
-    }, 0);
-  };
-
-  const moveDown = () => {
-    const reorder = props.onReorderClick(props.index, props.index + 1);
-    reorder();
-    setTimeout(function () {
-      const id = `root_${uiSchema['ui:title']}s_${props.index + 1}_Name`;
+      const id = `root_${uiSchema['ui:title']}s_${destination}_Name`;
       const $anchor = document.getElementById(id);
       const offsetTop =
         $anchor.getBoundingClientRect().top + window.pageYOffset;
@@ -159,7 +144,9 @@ function DefaultArrayItem(props) {
                           disabled={
                             props.disabled || props.readOnly || !props.hasMoveUp
                           }
-                          onClick={moveUp}
+                          onClick={() => {
+                            reorder(props.index, props.index - 1);
+                          }}
                         />
                       }
                       position="left center"
@@ -182,7 +169,9 @@ function DefaultArrayItem(props) {
                             props.readOnly ||
                             !props.hasMoveDown
                           }
-                          onClick={moveDown}
+                          onClick={() => {
+                            reorder(props.index, props.index + 1);
+                          }}
                         />
                       }
                       position="left center"
