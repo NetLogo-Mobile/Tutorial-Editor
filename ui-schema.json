@@ -57,6 +57,7 @@
           "Source": {
             "ui:options": {
               "semantic": {
+                "inline": true,
                 "placeholder": "Source of the event. For example, if you are listening to events of 'sheep-reproduction' widget, you should type in 'sheep-reproduction' here."
               }
             }
@@ -64,6 +65,7 @@
           "Type": {
             "ui:options": {
               "semantic": {
+                "inline": true,
                 "placeholder": "Type of events it is listening. Please look at the documentation for details."
               }
             }
@@ -231,6 +233,7 @@
           "Source": {
             "ui:options": {
               "semantic": {
+                "inline": true,
                 "placeholder": "Source of the event. For example, if you are listening to events of 'sheep-reproduction' widget, you should type in 'sheep-reproduction' here."
               }
             }
@@ -238,6 +241,7 @@
           "Type": {
             "ui:options": {
               "semantic": {
+                "inline": true,
                 "placeholder": "Type of events it is listening. Please look at the documentation for details."
               }
             }
@@ -273,6 +277,28 @@
             "selection": true,
             "header": "Where the dialog is anchored",
             "placeholder": "Where the dialog is anchored"
+          }
+        }
+      },
+      "Spotlight": {
+        "ui:children": "Spotlight",
+        "items": {
+          "ui:title": "Spotlight",
+          "Region": {
+            "ui:options": {
+              "inline": true,
+              "semantic": {
+                "inline": true
+              }
+            }
+          },
+          "Subregion": {
+            "ui:options": {
+              "inline": true,
+              "semantic": {
+                "inline": true
+              }
+            }
           }
         }
       },
