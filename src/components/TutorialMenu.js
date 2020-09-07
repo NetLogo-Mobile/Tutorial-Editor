@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { PropTypes } from 'prop-types';
-import { Menu, Button } from 'semantic-ui-react';
+import { Menu } from 'semantic-ui-react';
 import styled from '@emotion/styled';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
@@ -9,7 +9,7 @@ const reorder = (tutorial, category, startIndex, endIndex) => {
   const [removed] = result.splice(startIndex, 1);
   result.splice(endIndex, 0, removed);
 
-  if (category == 'Sections') {
+  if (category === 'Sections') {
     return { Sections: result, Dialogs: tutorial.Dialogs };
   } else {
     return { Sections: tutorial.Sections, Dialogs: result };
