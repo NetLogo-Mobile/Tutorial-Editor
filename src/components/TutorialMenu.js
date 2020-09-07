@@ -4,12 +4,16 @@ import { Menu, Button } from 'semantic-ui-react';
 import styled from '@emotion/styled';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 
-const reorder = (list, startIndex, endIndex) => {
-  const result = Array.from(list);
+const reorder = (tutorial, category, startIndex, endIndex) => {
+  const result = Array.from(tutorial[category]);
   const [removed] = result.splice(startIndex, 1);
   result.splice(endIndex, 0, removed);
 
-  return result;
+  if (category == 'Sections') {
+    return { Sections: result, Dialogs: tutorial.Dialogs };
+  } else {
+    return { Sections: tutorial.Sections, Dialogs: result };
+  }
 };
 
 const ItemButton = styled.div`
@@ -19,13 +23,13 @@ const ItemButton = styled.div`
   color: #333;
 `;
 
-function Item({ item, index }) {
+function Item({ item, index, category }) {
   return (
-    <Draggable draggableId={item.Name} index={index}>
+    <Draggable draggableId={`${category}-${item.Name}`} index={index}>
       {(provided) => (
         <ItemButton
           as="a"
-          href={`#root_Dialogs_${index}_Name`}
+          href={`#root_${category}_${index}_Name`}
           ref={provided.innerRef}
           {...provided.draggableProps}
           {...provided.dragHandleProps}
@@ -37,13 +41,13 @@ function Item({ item, index }) {
   );
 }
 
-const ItemList = React.memo(function ItemList({ items }) {
-  return items.map((item: QuoteType, index: number) => (
-    <Item item={item} index={index} key={item.Name} />
+const ItemList = React.memo(function ItemList({ items, category }) {
+  return items.map((item, index) => (
+    <Item item={item} index={index} key={item.Name} category={category} />
   ));
 });
 
-const TutorialMenu = ({ tutorial, setTutorial, contextRef }) => {
+const TutorialMenu = ({ tutorial, setTutorial }) => {
   function onDragSectionEnd(result) {
     if (!result.destination) {
       return;
@@ -53,31 +57,16 @@ const TutorialMenu = ({ tutorial, setTutorial, contextRef }) => {
       return;
     }
 
-    const items = reorder(
-      tutorial.Sections,
+    const category = result.draggableId.split('-')[0];
+
+    const reorderedTutorial = reorder(
+      tutorial,
+      category,
       result.source.index,
       result.destination.index,
     );
 
-    setTutorial({ Sections: items, Dialogs: tutorial.Dialogs });
-  }
-
-  function onDragDialogEnd(result) {
-    if (!result.destination) {
-      return;
-    }
-
-    if (result.destination.index === result.source.index) {
-      return;
-    }
-
-    const items = reorder(
-      tutorial.Dialogs,
-      result.source.index,
-      result.destination.index,
-    );
-
-    setTutorial({ Sections: tutorial.Sections, Dialogs: items });
+    setTutorial(reorderedTutorial);
   }
 
   return (
@@ -90,7 +79,7 @@ const TutorialMenu = ({ tutorial, setTutorial, contextRef }) => {
               {(provided) => (
                 <div ref={provided.innerRef} {...provided.droppableProps}>
                   {tutorial.Sections ? (
-                    <ItemList items={tutorial.Sections} />
+                    <ItemList items={tutorial.Sections} category="Sections" />
                   ) : null}
                   {provided.placeholder}
                 </div>
@@ -102,12 +91,12 @@ const TutorialMenu = ({ tutorial, setTutorial, contextRef }) => {
       <Menu.Item>
         <Menu.Header>Dialogs</Menu.Header>
         <Menu.Menu>
-          <DragDropContext onDragEnd={onDragDialogEnd}>
+          <DragDropContext onDragEnd={onDragSectionEnd}>
             <Droppable droppableId="list">
               {(provided) => (
                 <div ref={provided.innerRef} {...provided.droppableProps}>
                   {tutorial.Dialogs ? (
-                    <ItemList items={tutorial.Dialogs} />
+                    <ItemList items={tutorial.Dialogs} category="Dialogs" />
                   ) : null}
                   {provided.placeholder}
                 </div>
@@ -122,12 +111,10 @@ const TutorialMenu = ({ tutorial, setTutorial, contextRef }) => {
 
 TutorialMenu.defaultProps = {
   tutorial: {},
-  contextRef: {},
 };
 
 TutorialMenu.propTypes = {
   tutorial: PropTypes.objectOf(PropTypes.object),
-  contextRef: PropTypes.objectOf(PropTypes.object),
 };
 
 export default TutorialMenu;

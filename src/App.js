@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button, Container, Grid } from 'semantic-ui-react';
 import $ from 'jquery';
 import Form from '@rjsf/semantic-ui';
@@ -83,8 +83,6 @@ function App() {
     setTutorialData(formData);
   };
 
-  const contextRef = useRef();
-
   return (
     <Container>
       <Grid columns="2">
@@ -125,7 +123,6 @@ function App() {
               <TutorialMenu
                 tutorial={tutorialData}
                 setTutorial={setTutorialData}
-                contextRef={contextRef}
               />
             </div>
           </Grid.Column>
