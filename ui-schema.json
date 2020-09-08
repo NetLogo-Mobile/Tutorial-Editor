@@ -282,22 +282,18 @@
       },
       "Spotlight": {
         "ui:children": "Spotlight",
-        "items": {
-          "ui:title": "Spotlight",
-          "Region": {
-            "ui:options": {
-              "inline": true,
-              "semantic": {
-                "inline": true
-              }
+        "ui:title": "Spotlight",
+        "Region": {
+          "ui:options": {
+            "semantic": {
+              "inline": true
             }
-          },
-          "Subregion": {
-            "ui:options": {
-              "inline": true,
-              "semantic": {
-                "inline": true
-              }
+          }
+        },
+        "Subregion": {
+          "ui:options": {
+            "semantic": {
+              "inline": true
             }
           }
         }
