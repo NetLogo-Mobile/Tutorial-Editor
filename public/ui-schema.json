@@ -280,6 +280,24 @@
           }
         }
       },
+      "Spotlight": {
+        "ui:children": "Spotlight",
+        "ui:title": "Spotlight",
+        "Region": {
+          "ui:options": {
+            "semantic": {
+              "inline": true
+            }
+          }
+        },
+        "Subregion": {
+          "ui:options": {
+            "semantic": {
+              "inline": true
+            }
+          }
+        }
+      },
       "DismissBehavior": {
         "widget": "SelectWidget",
         "ui:options": {
