@@ -54,6 +54,25 @@ function App() {
     download.remove();
   };
 
+  // Transform Button actions into Button Callback.
+  // We deleted Button Action part, so need this transformation for previous tutorial json.
+  const deleteButtonActions = (tutorial) => {
+    tutorial.Dialogs.forEach((dialog) => {
+      dialog.Buttons.forEach((button) => {
+        if (button.Handlers) {
+          const callbacks = [];
+          button.Handlers.forEach((handler) => {
+            if (handler.Callback) {
+              callbacks.push(handler.Callback);
+            }
+          });
+          button.Callback = callbacks.join('\n');
+          delete button.Handlers;
+        }
+      });
+    });
+  };
+
   const onFileChange = ({ target: { files } }) => {
     if (files.length === 0) {
       return;
@@ -65,6 +84,7 @@ function App() {
 
     reader.onload = (event) => {
       const json = JSON.parse(event.target.result);
+      deleteButtonActions(json);
       setTutorialData(json);
       setFileUpload(file);
     };

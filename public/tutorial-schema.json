@@ -71,21 +71,6 @@
       },
       "required": ["Category", "Type", "Callback"]
     },
-    "EventHandler.Button": {
-      "type": "object",
-      "properties": {
-        "Filter": {
-          "type": "string"
-        },
-        "Callback": {
-          "type": "string"
-        },
-        "Repeated": {
-          "type": "boolean"
-        }
-      },
-      "required": ["Callback"]
-    },
     "EventCategory": {
       "type": "number",
       "enum": [0, 1, 2, 3, 4, 5, 6, 7, 8],
@@ -217,12 +202,6 @@
         "Behavior": {
           "$ref": "#/definitions/ButtonBehavior",
           "default": 2
-        },
-        "Handlers": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/EventHandler.Button"
-          }
         }
       },
       "required": ["Style"],
