@@ -1,0 +1,510 @@
+{
+  "Sections": [
+    {
+      "Handlers": [],
+      "Name": "Introduction",
+      "Activated": true,
+      "Initializer": "workspace:pause\nworkspace:set-speed 0.5\nworkspace:hide \"Everything\"\ntutorial:show-dialog \"Introduction\" false"
+    },
+    {
+      "Activated": false,
+      "Name": "Play",
+      "Initializer": "workspace:pause\nworkspace:hide \"Everything\"\ntutorial:show-dialog \"Play\" false"
+    },
+    {
+      "Initializer": "workspace:hide \"Everything\"\ntutorial:show-dialog \"Inspection\" false",
+      "Name": "Inspection",
+      "Activated": false,
+      "Filter": "(count turtles) > 0"
+    },
+    {
+      "Name": "Monitor",
+      "Initializer": "workspace:hide \"Everything\"\ntutorial:show-dialog \"Monitor\" false",
+      "Activated": false
+    },
+    {
+      "Name": "Widgets",
+      "Initializer": "workspace:hide \"Everything\"\ntutorial:show-dialog \"ShowWidget\" false",
+      "Activated": false
+    },
+    {
+      "Handlers": [],
+      "Name": "NetTango",
+      "Initializer": "workspace:hide \"Everything\"\ntutorial:show-dialog \"ShowNetTango\" false"
+    },
+    {
+      "Name": "Code",
+      "Initializer": "workspace:hide \"Everything\"\ntutorial:show-dialog \"ShowCode\" false"
+    },
+    {
+      "Initializer": "workspace:hide \"Everything\"\ntutorial:show-dialog \"ShowMore\" false",
+      "Name": "ShowMore",
+      "Activated": false
+    },
+    {
+      "Name": "Congratulation",
+      "Initializer": "tutorial:show-dialog \"Congratulation\" false",
+      "Activated": false,
+      "Filter": "(count turtles) > 0"
+    }
+  ],
+  "Dialogs": [
+    {
+      "Type": 1,
+      "Anchor": 2,
+      "Buttons": [
+        {
+          "Style": 0,
+          "Behavior": 2,
+          "Handlers": [
+            {
+              "Callback": "workspace:pause\ntutorial:forward",
+              "Repeated": false
+            }
+          ],
+          "Text": "Okay!"
+        },
+        {
+          "Style": 1,
+          "Behavior": 1,
+          "Text": "Maybe later"
+        }
+      ],
+      "Handlers": [],
+      "DismissBehavior": 1,
+      "Name": "Introduction",
+      "Content": "Confused by the buttons on the screen?\nMaster the basics of Turtle Universe in just two minutes!"
+    },
+    {
+      "Type": 1,
+      "Anchor": 0,
+      "Buttons": [],
+      "Handlers": [
+        {
+          "Category": 0,
+          "Type": "Play",
+          "Callback": "tutorial:forward"
+        }
+      ],
+      "DismissBehavior": 2,
+      "Spotlight": {
+        "Region": "Play"
+      },
+      "Title": "Control the Model",
+      "Name": "Play",
+      "Content": "<b> ↑ </b> Click on the three buttons above to start/pause, restart, or change its running speed.\nNow, let's first try to start this model!\n\n(Hint: Click on the first button.)"
+    },
+    {
+      "Type": 0,
+      "Anchor": 2,
+      "Buttons": [
+        {
+          "Style": 1,
+          "Behavior": 2,
+          "Handlers": [
+            {
+              "Callback": "tutorial:back"
+            }
+          ],
+          "Text": "Back"
+        }
+      ],
+      "Handlers": [
+        {
+          "Category": 0,
+          "Type": "Focus",
+          "Repeated": false,
+          "Callback": "tutorial:forward"
+        }
+      ],
+      "DismissBehavior": 2,
+      "Name": "Inspection",
+      "Content": "Great! Your model is now running. \nDo you see those moving objects on the screen? \nWe call them <b>\"tutles\"</b>. Together, they construct the whole model.\nClick on one of them to inspect its properties.",
+      "Title": "Inspection of the \"turtles\""
+    },
+    {
+      "Type": 1,
+      "Anchor": 0,
+      "Buttons": [
+        {
+          "Style": 0,
+          "Behavior": 2,
+          "Handlers": [
+            {
+              "Callback": "tutorial:show-dialog \"ShowPlot\" false",
+              "Repeated": false
+            }
+          ],
+          "Text": "Next"
+        },
+        {
+          "Style": 1,
+          "Behavior": 2,
+          "Handlers": [
+            {
+              "Callback": "tutorial:back",
+              "Repeated": false
+            }
+          ],
+          "Text": "Back"
+        }
+      ],
+      "Handlers": [
+        {
+          "Category": 1,
+          "Source": "Plots",
+          "Type": "Show",
+          "Callback": "; If the user directly opens the full plots, we skip the next step\ntutorial:hide-dialog \"Monitor\"\ntutorial:show-dialog \"ClosePlot\" false"
+        }
+      ],
+      "DismissBehavior": 2,
+      "Spotlight": {
+        "Region": "MiniPlot"
+      },
+      "Name": "Monitor",
+      "Title": "Statistics Panel",
+      "Content": "Nicely done! Want to know how your turtles are doing?\nYou can keep track of them there. \nThose numbers change as your model runs. \n"
+    },
+    {
+      "Type": 2,
+      "Anchor": 0,
+      "Buttons": [
+        {
+          "Style": 1,
+          "Behavior": 2,
+          "Handlers": [
+            {
+              "Callback": "tutorial:back"
+            }
+          ],
+          "Text": "Back"
+        }
+      ],
+      "Handlers": [
+        {
+          "Category": 1,
+          "Source": "Plots",
+          "Type": "Show",
+          "Callback": "tutorial:show-dialog \"ClosePlot\" false"
+        }
+      ],
+      "DismissBehavior": 2,
+      "Spotlight": {
+        "Region": "MiniPlot",
+        "Subregion": "Expand"
+      },
+      "Name": "ShowPlot",
+      "Title": "Visit the plots",
+      "Content": "Want to see the overall trend? \nClick on the highlighted button to see the full plot of the model!\n"
+    },
+    {
+      "Type": 1,
+      "Anchor": 0,
+      "Buttons": [
+        {
+          "Style": 1,
+          "Behavior": 2,
+          "Handlers": [
+            {
+              "Callback": "tutorial:back"
+            }
+          ],
+          "Text": "Back"
+        }
+      ],
+      "Handlers": [
+        {
+          "Category": 1,
+          "Source": "Plots",
+          "Type": "Hide",
+          "Callback": "tutorial:forward"
+        }
+      ],
+      "DismissBehavior": 2,
+      "Spotlight": {
+        "Region": "Plots",
+        "Subregion": "Close"
+      },
+      "Name": "ClosePlot",
+      "Title": "Close the plots",
+      "Content": "Don't need the plots on screen? \nTurn it off by clicking on the top-right close button!"
+    },
+    {
+      "Type": 1,
+      "Anchor": 0,
+      "Buttons": [
+        {
+          "Style": 1,
+          "Behavior": 2,
+          "Handlers": [
+            {
+              "Callback": "tutorial:back"
+            }
+          ],
+          "Text": "Back"
+        }
+      ],
+      "Handlers": [
+        {
+          "Category": 1,
+          "Source": "Widgets",
+          "Type": "Show",
+          "Callback": "tutorial:show-dialog \"Widget\" false"
+        }
+      ],
+      "DismissBehavior": 2,
+      "Spotlight": {
+        "Region": "Toolbar",
+        "Subregion": "Widgets"
+      },
+      "Name": "ShowWidget",
+      "Content": "Want to manipulate the model?\nClick on the highlighted button to open the widgets panel. ",
+      "Title": "Widgets Panel"
+    },
+    {
+      "Type": 0,
+      "Anchor": 2,
+      "Buttons": [
+        {
+          "Style": 0,
+          "Behavior": 2,
+          "Handlers": [
+            {
+              "Callback": "tutorial:forward"
+            }
+          ],
+          "Text": "Next"
+        },
+        {
+          "Style": 1,
+          "Behavior": 2,
+          "Handlers": [
+            {
+              "Callback": "tutorial:back"
+            }
+          ],
+          "Text": "Back"
+        }
+      ],
+      "Handlers": [
+        {
+          "Category": 1,
+          "Source": "Widgets",
+          "Type": "Hide",
+          "Callback": "tutorial:forward"
+        }
+      ],
+      "DismissBehavior": 2,
+      "Name": "Widget",
+      "Title": "Widgets",
+      "Content": "Widgets include everything from numbers you can change to buttons you can click on. \nYou can play with these widgets to manipulate your model as you wish. \nSometimes you need to restart the model for the effects to take place."
+    },
+    {
+      "Type": 1,
+      "Anchor": 0,
+      "Buttons": [
+        {
+          "Style": 1,
+          "Behavior": 2,
+          "Handlers": [
+            {
+              "Callback": "tutorial:back"
+            }
+          ],
+          "Text": "Back"
+        }
+      ],
+      "Handlers": [
+        {
+          "Category": 1,
+          "Source": "NetTango",
+          "Type": "Show",
+          "Callback": "tutorial:show-dialog \"NetTango\" false"
+        }
+      ],
+      "DismissBehavior": 2,
+      "Spotlight": {
+        "Region": "Toolbar",
+        "Subregion": "NetTango"
+      },
+      "Name": "ShowNetTango",
+      "Content": "Ready to play with the model more? \nClick on the highlighted button to see coding blocks!",
+      "Title": "Coding Blocks"
+    },
+    {
+      "Type": 0,
+      "Anchor": 1,
+      "Buttons": [
+        {
+          "Style": 0,
+          "Behavior": 2,
+          "Handlers": [
+            {
+              "Callback": "tutorial:forward"
+            }
+          ],
+          "Text": "Next"
+        },
+        {
+          "Style": 1,
+          "Behavior": 2,
+          "Handlers": [
+            {
+              "Callback": "tutorial:back"
+            }
+          ],
+          "Text": "Back"
+        }
+      ],
+      "DismissBehavior": 2,
+      "Spotlight": {},
+      "Name": "NetTango",
+      "Content": "Block by block, they tell the turtles how to move.\nBy editing, adding or removing these blocks, you can give turtles your instructions and manipulate the model!\nClick on the \"Edit\" button on the top-right to change those blocks.",
+      "Title": "Coding Blocks"
+    },
+    {
+      "Type": 1,
+      "Anchor": 0,
+      "Buttons": [
+        {
+          "Style": 1,
+          "Behavior": 2,
+          "Handlers": [
+            {
+              "Callback": "tutorial:back"
+            }
+          ],
+          "Text": "Back"
+        }
+      ],
+      "Handlers": [
+        {
+          "Category": 1,
+          "Source": "Code",
+          "Type": "Show",
+          "Callback": "tutorial:show-dialog \"Code\" false"
+        }
+      ],
+      "DismissBehavior": 2,
+      "Spotlight": {
+        "Region": "Toolbar",
+        "Subregion": "Code"
+      },
+      "Name": "ShowCode",
+      "Content": "Good Job! Want to manipulate the model on a deeper level?\nClick on the highlighted button to open the codes panel!",
+      "Title": "Codes Panel"
+    },
+    {
+      "Type": 0,
+      "Anchor": 1,
+      "Buttons": [
+        {
+          "Style": 0,
+          "Behavior": 2,
+          "Handlers": [
+            {
+              "Callback": "tutorial:forward"
+            }
+          ],
+          "Text": "Next"
+        },
+        {
+          "Style": 1,
+          "Behavior": 2,
+          "Handlers": [
+            {
+              "Callback": "tutorial:back"
+            }
+          ],
+          "Text": "Back"
+        }
+      ],
+      "DismissBehavior": 2,
+      "Name": "Code",
+      "Content": "Here, you can check the codes to see in detail how your turtles move and how how yoir model works.\nYou can also modify the codes to give turtles your instructions and manipulate your model!",
+      "Title": "Codes"
+    },
+    {
+      "Type": 1,
+      "Anchor": 0,
+      "Buttons": [
+        {
+          "Style": 1,
+          "Behavior": 2,
+          "Handlers": [
+            {
+              "Callback": "tutorial:back"
+            }
+          ],
+          "Text": "Back"
+        }
+      ],
+      "Handlers": [
+        {
+          "Category": 1,
+          "Source": "More",
+          "Type": "Show",
+          "Callback": "tutorial:show-dialog \"More\" false"
+        }
+      ],
+      "DismissBehavior": 2,
+      "Spotlight": {
+        "Region": "Toolbar",
+        "Subregion": "More"
+      },
+      "Name": "ShowMore",
+      "Title": "More Panel",
+      "Content": "Now, click on the highlighted button to see what else you can do with your model!"
+    },
+    {
+      "Type": 0,
+      "Anchor": 2,
+      "Buttons": [
+        {
+          "Style": 0,
+          "Behavior": 2,
+          "Handlers": [
+            {
+              "Callback": "tutorial:forward"
+            }
+          ],
+          "Text": "Next"
+        },
+        {
+          "Style": 1,
+          "Behavior": 2,
+          "Handlers": [
+            {
+              "Callback": "tutorial:back"
+            }
+          ],
+          "Text": "Back"
+        }
+      ],
+      "DismissBehavior": 2,
+      "Spotlight": {},
+      "Name": "More",
+      "Content": "Here you can share, save, read, or leave the model. \nThe best part? \nOnce you create something cool, <b>publishing</b> it to the community! "
+    },
+    {
+      "Type": 0,
+      "Anchor": 2,
+      "Buttons": [
+        {
+          "Style": 3,
+          "Behavior": 2,
+          "Handlers": [
+            {
+              "Callback": "tutorial:deactivate \"Congratulation\""
+            }
+          ]
+        }
+      ],
+      "DismissBehavior": 2,
+      "Spotlight": {},
+      "Name": "Congratulation",
+      "Content": "Well done! You have mastered the basics of Turtle Universe!\nTime to play with the model!\nHave fun!",
+      "Title": "Congratulations!"
+    }
+  ]
+}

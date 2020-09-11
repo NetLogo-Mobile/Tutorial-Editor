@@ -71,21 +71,6 @@
       },
       "required": ["Category", "Type", "Callback"]
     },
-    "EventHandler.Button": {
-      "type": "object",
-      "properties": {
-        "Filter": {
-          "type": "string"
-        },
-        "Callback": {
-          "type": "string"
-        },
-        "Repeated": {
-          "type": "boolean"
-        }
-      },
-      "required": ["Callback"]
-    },
     "EventCategory": {
       "type": "number",
       "enum": [0, 1, 2, 3, 4, 5, 6, 7, 8],
@@ -144,7 +129,9 @@
           "oneOf": [
             {
               "properties": {
-                "Anchor": { "enum": [0] },
+                "Anchor": {
+                  "enum": [0]
+                },
                 "Spotlight": {
                   "$ref": "#/definitions/Spotlight"
                 }
@@ -152,7 +139,9 @@
             },
             {
               "properties": {
-                "Anchor": { "enum": [1, 2, 3] }
+                "Anchor": {
+                  "enum": [1, 2, 3]
+                }
               }
             }
           ]
@@ -161,7 +150,9 @@
           "oneOf": [
             {
               "properties": {
-                "Type": { "enum": [3] },
+                "Type": {
+                  "enum": [3]
+                },
                 "Questions": {
                   "type": "array",
                   "items": {
@@ -217,12 +208,6 @@
         "Behavior": {
           "$ref": "#/definitions/ButtonBehavior",
           "default": 2
-        },
-        "Handlers": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/EventHandler.Button"
-          }
         }
       },
       "required": ["Style"],
