@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Container, Grid } from 'semantic-ui-react';
+import { Button, Container, Dropdown, Grid } from 'semantic-ui-react';
 import $ from 'jquery';
 import Form from '@rjsf/semantic-ui';
 import TutorialMenu from './components/TutorialMenu';
@@ -91,6 +91,16 @@ function App() {
     reader.readAsText(file);
   };
 
+  const uploadSample = () => {
+    setLoading(true);
+    fetch(`${process.env.PUBLIC_URL}/sample.json`)
+      .then((res) => res.json())
+      .then((data) => {
+        setTutorialData(data);
+        setFileUpload(true);
+      });
+  };
+
   const onClickUpload = () => {
     $('input[type=file]').click();
   };
@@ -130,9 +140,18 @@ function App() {
           <Grid.Column width="4">
             <div className="tool_container">
               <Button.Group fluid>
-                <Button loading={loading} onClick={onClickUpload}>
+                <Button>
                   <i className="upload icon" />
-                  Load
+                  <Dropdown loading={loading} text="Load" labeled button>
+                    <Dropdown.Menu>
+                      <Dropdown.Item onClick={onClickUpload}>
+                        Load your tutorial
+                      </Dropdown.Item>
+                      <Dropdown.Item onClick={uploadSample}>
+                        Load Sample
+                      </Dropdown.Item>
+                    </Dropdown.Menu>
+                  </Dropdown>
                 </Button>
                 <Button.Or />
                 <Button positive color="violet" onClick={onClickDownload}>
