@@ -56,13 +56,8 @@
         {
           "Style": 0,
           "Behavior": 2,
-          "Handlers": [
-            {
-              "Callback": "workspace:pause\ntutorial:forward",
-              "Repeated": false
-            }
-          ],
-          "Text": "Okay!"
+          "Text": "Okay!",
+          "Callback": "workspace:pause\ntutorial:forward"
         },
         {
           "Style": 1,
@@ -101,12 +96,8 @@
         {
           "Style": 1,
           "Behavior": 2,
-          "Handlers": [
-            {
-              "Callback": "tutorial:back"
-            }
-          ],
-          "Text": "Back"
+          "Text": "Back",
+          "Callback": "tutorial:back"
         }
       ],
       "Handlers": [
@@ -129,24 +120,14 @@
         {
           "Style": 0,
           "Behavior": 2,
-          "Handlers": [
-            {
-              "Callback": "tutorial:show-dialog \"ShowPlot\" false",
-              "Repeated": false
-            }
-          ],
-          "Text": "Next"
+          "Text": "Next",
+          "Callback": "tutorial:show-dialog \"ShowPlot\" false"
         },
         {
           "Style": 1,
           "Behavior": 2,
-          "Handlers": [
-            {
-              "Callback": "tutorial:back",
-              "Repeated": false
-            }
-          ],
-          "Text": "Back"
+          "Text": "Back",
+          "Callback": "tutorial:back"
         }
       ],
       "Handlers": [
@@ -172,12 +153,8 @@
         {
           "Style": 1,
           "Behavior": 2,
-          "Handlers": [
-            {
-              "Callback": "tutorial:back"
-            }
-          ],
-          "Text": "Back"
+          "Text": "Back",
+          "Callback": "tutorial:back"
         }
       ],
       "Handlers": [
@@ -204,12 +181,8 @@
         {
           "Style": 1,
           "Behavior": 2,
-          "Handlers": [
-            {
-              "Callback": "tutorial:back"
-            }
-          ],
-          "Text": "Back"
+          "Text": "Back",
+          "Callback": "tutorial:back"
         }
       ],
       "Handlers": [
@@ -236,12 +209,8 @@
         {
           "Style": 1,
           "Behavior": 2,
-          "Handlers": [
-            {
-              "Callback": "tutorial:back"
-            }
-          ],
-          "Text": "Back"
+          "Text": "Back",
+          "Callback": "tutorial:back"
         }
       ],
       "Handlers": [
@@ -268,22 +237,14 @@
         {
           "Style": 0,
           "Behavior": 2,
-          "Handlers": [
-            {
-              "Callback": "tutorial:forward"
-            }
-          ],
-          "Text": "Next"
+          "Text": "Next",
+          "Callback": "tutorial:forward"
         },
         {
           "Style": 1,
           "Behavior": 2,
-          "Handlers": [
-            {
-              "Callback": "tutorial:back"
-            }
-          ],
-          "Text": "Back"
+          "Text": "Back",
+          "Callback": "tutorial:back"
         }
       ],
       "Handlers": [
@@ -306,12 +267,8 @@
         {
           "Style": 1,
           "Behavior": 2,
-          "Handlers": [
-            {
-              "Callback": "tutorial:back"
-            }
-          ],
-          "Text": "Back"
+          "Text": "Back",
+          "Callback": "tutorial:back"
         }
       ],
       "Handlers": [
@@ -338,22 +295,14 @@
         {
           "Style": 0,
           "Behavior": 2,
-          "Handlers": [
-            {
-              "Callback": "tutorial:forward"
-            }
-          ],
-          "Text": "Next"
+          "Text": "Next",
+          "Callback": "tutorial:forward"
         },
         {
           "Style": 1,
           "Behavior": 2,
-          "Handlers": [
-            {
-              "Callback": "tutorial:back"
-            }
-          ],
-          "Text": "Back"
+          "Text": "Back",
+          "Callback": "tutorial:back"
         }
       ],
       "DismissBehavior": 2,
@@ -369,12 +318,8 @@
         {
           "Style": 1,
           "Behavior": 2,
-          "Handlers": [
-            {
-              "Callback": "tutorial:back"
-            }
-          ],
-          "Text": "Back"
+          "Text": "Back",
+          "Callback": "tutorial:back"
         }
       ],
       "Handlers": [
@@ -401,22 +346,14 @@
         {
           "Style": 0,
           "Behavior": 2,
-          "Handlers": [
-            {
-              "Callback": "tutorial:forward"
-            }
-          ],
-          "Text": "Next"
+          "Text": "Next",
+          "Callback": "tutorial:forward"
         },
         {
           "Style": 1,
           "Behavior": 2,
-          "Handlers": [
-            {
-              "Callback": "tutorial:back"
-            }
-          ],
-          "Text": "Back"
+          "Text": "Back",
+          "Callback": "tutorial:back"
         }
       ],
       "DismissBehavior": 2,
@@ -431,12 +368,8 @@
         {
           "Style": 1,
           "Behavior": 2,
-          "Handlers": [
-            {
-              "Callback": "tutorial:back"
-            }
-          ],
-          "Text": "Back"
+          "Text": "Back",
+          "Callback": "tutorial:back"
         }
       ],
       "Handlers": [
@@ -463,22 +396,14 @@
         {
           "Style": 0,
           "Behavior": 2,
-          "Handlers": [
-            {
-              "Callback": "tutorial:forward"
-            }
-          ],
-          "Text": "Next"
+          "Text": "Next",
+          "Callback": "tutorial:forward"
         },
         {
           "Style": 1,
           "Behavior": 2,
-          "Handlers": [
-            {
-              "Callback": "tutorial:back"
-            }
-          ],
-          "Text": "Back"
+          "Text": "Back",
+          "Callback": "tutorial:back"
         }
       ],
       "DismissBehavior": 2,
@@ -493,11 +418,7 @@
         {
           "Style": 3,
           "Behavior": 2,
-          "Handlers": [
-            {
-              "Callback": "tutorial:deactivate \"Congratulation\""
-            }
-          ]
+          "Callback": "tutorial:deactivate \"Congratulation\""
         }
       ],
       "DismissBehavior": 2,
