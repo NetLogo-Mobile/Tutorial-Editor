@@ -6,6 +6,7 @@ import TutorialMenu from './components/TutorialMenu';
 import ArrayTemplate from './components/ArrayFieldTemplate';
 import ObjectTemplate from './components/ObjectFieldTemplate';
 import CodeMirrorWidget from './components/CodeMirrorWidget/CodeMirrorWidget';
+import CheckboxWidget from './components/CheckboxWidget';
 import './App.css';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
 
   const widgets = {
     codeMirror: CodeMirrorWidget,
+    CheckboxWidget,
   };
 
   useEffect(() => {
@@ -144,11 +146,13 @@ function App() {
                   <i className="upload icon" />
                   <Dropdown loading={loading} text="Load" labeled button>
                     <Dropdown.Menu>
-                      <Dropdown.Item onClick={onClickUpload}>
-                        Load your tutorial
-                      </Dropdown.Item>
                       <Dropdown.Item onClick={uploadSample}>
-                        Load Sample
+                        <i className="file alternate icon" />
+                        Load a sample
+                      </Dropdown.Item>
+                      <Dropdown.Item active onClick={onClickUpload}>
+                        <i className="folder open icon" />
+                        Load your tutorial
                       </Dropdown.Item>
                     </Dropdown.Menu>
                   </Dropdown>
