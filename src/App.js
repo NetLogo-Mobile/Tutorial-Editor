@@ -18,7 +18,7 @@ function App() {
 
   const widgets = {
     codeMirror: CodeMirrorWidget,
-    CheckboxWidget,
+    sectionCheckboxWidget: CheckboxWidget,
   };
 
   useEffect(() => {
