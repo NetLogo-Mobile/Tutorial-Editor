@@ -13,6 +13,7 @@
         }
       },
       "Activated": {
+        "ui:widget": "sectionCheckboxWidget",
         "ui:options": {
           "semantic": {
             "toggle": true
