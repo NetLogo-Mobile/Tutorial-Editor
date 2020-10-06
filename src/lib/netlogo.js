@@ -240,6 +240,7 @@ require('codemirror/addon/mode/simple.js');
     'tutorial:deactivate',
     'tutorial:back',
     'tutorial:forward',
+    'tutorial:go',
     'widget:show',
     'widget:hide',
     'widget:move',
