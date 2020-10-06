@@ -129,9 +129,7 @@
           "oneOf": [
             {
               "properties": {
-                "Anchor": {
-                  "enum": [0]
-                },
+                "Anchor": { "enum": [0] },
                 "Spotlight": {
                   "$ref": "#/definitions/Spotlight"
                 }
@@ -139,9 +137,7 @@
             },
             {
               "properties": {
-                "Anchor": {
-                  "enum": [1, 2, 3]
-                }
+                "Anchor": { "enum": [1, 2, 3] }
               }
             }
           ]
@@ -150,9 +146,7 @@
           "oneOf": [
             {
               "properties": {
-                "Type": {
-                  "enum": [3]
-                },
+                "Type": { "enum": [3] },
                 "Questions": {
                   "type": "array",
                   "items": {
