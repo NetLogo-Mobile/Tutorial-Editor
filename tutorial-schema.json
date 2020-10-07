@@ -102,10 +102,6 @@
         "Content": {
           "type": "string"
         },
-        "Anchor": {
-          "$ref": "#/definitions/AnchorType",
-          "default": 1
-        },
         "Buttons": {
           "type": "array",
           "items": {
@@ -146,18 +142,43 @@
           "oneOf": [
             {
               "properties": {
+                "Type": { "enum": [0] }
+              }
+            },
+            {
+              "properties": {
+                "Type": { "enum": [1] },
+                "Anchor": {
+                  "$ref": "#/definitions/AnchorType",
+                  "default": 1
+                }
+              }
+            },
+            {
+              "properties": {
+                "Type": { "enum": [2] },
+                "Input": {
+                  "type": "string"
+                },
+                "Anchor": {
+                  "$ref": "#/definitions/AnchorType",
+                  "default": 1
+                }
+              }
+            },
+            {
+              "properties": {
                 "Type": { "enum": [3] },
                 "Questions": {
                   "type": "array",
                   "items": {
                     "$ref": "#/definitions/Question"
                   }
+                },
+                "Anchor": {
+                  "$ref": "#/definitions/AnchorType",
+                  "default": 1
                 }
-              }
-            },
-            {
-              "properties": {
-                "Anchor": { "enum": [0, 1, 2] }
               }
             }
           ]
@@ -232,8 +253,8 @@
     },
     "ButtonBehavior": {
       "type": "number",
-      "enum": [0, 1, 2],
-      "enumNames": ["None", "Minimize", "Hide"]
+      "enum": [0, 1, 2, 3],
+      "enumNames": ["None", "Minimize", "Hide", "Back"]
     },
     "Question": {
       "type": "object",

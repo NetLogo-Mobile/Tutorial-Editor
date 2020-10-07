@@ -125,6 +125,14 @@
           }
         }
       },
+      "Input": {
+        "ui:options": {
+          "semantic": {
+            "inline": true,
+            "placeholder": "Identifier of the input affliated to the dialog. If you don't need an input, leave it empty."
+          }
+        }
+      },
       "Type": {
         "widget": "SelectWidget",
         "ui:options": {
