@@ -234,6 +234,8 @@ require('codemirror/addon/mode/simple.js');
     'tutorial:show-dialog',
     'tutorial:minimize-dialog',
     'tutorial:hide-dialog',
+    'tutorial:back-dialog',
+    'tutorial:submit-input',
     'tutorial:get',
     'tutorial:set',
     'tutorial:activate',
