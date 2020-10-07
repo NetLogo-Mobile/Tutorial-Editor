@@ -33,13 +33,15 @@ const pickColor = (title) => {
 const transformColor = (colorName) => {
   switch (colorName) {
     case 'violet':
-      return 'rgb(35, 102, 194, 0.6';
+      return 'rgb(35, 102, 194, 0.6)';
     case 'purple':
       return 'rgb(134, 69, 144. 0.6)';
     case 'orange':
       return 'rgb(245, 146, 73, 0.6)';
     case 'yellow':
-      return 'FCBC40';
+      return 'rgb(252, 188, 64, 0.6)';
+    default:
+      return 'rgb(52, 104, 193, 0.6)';
   }
 };
 
@@ -302,7 +304,6 @@ function DefaultNormalArrayFieldTemplate({
   TitleField,
   itemProps,
 }) {
-  const fieldTitle = uiSchema['ui:title'] || title;
   const fieldDescription = uiSchema['ui:description'] || schema.description;
   const fieldChildren = uiSchema['ui:children'] || 'Item';
   return (

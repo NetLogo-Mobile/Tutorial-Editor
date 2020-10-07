@@ -15,10 +15,6 @@ require('../../lib/netlogo.css');
 
 const CodeMirrorWidget = (props) => {
   const { placeholder, options, onChange, required, value, label } = props;
-  const defaultComments =
-    label === 'Initializer' || label === 'Finalizer'
-      ? `;;${placeholder}\n` || `;;To write netlogo code`
-      : '';
   const _onChange = (value) => {
     onChange && onChange(value === '' ? options.emptyValue : value);
   };

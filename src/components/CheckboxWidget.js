@@ -10,7 +10,6 @@ function CheckboxWidget(props) {
     required,
     disabled,
     readonly,
-    label,
     autofocus,
     onChange,
     onBlur,
@@ -22,7 +21,7 @@ function CheckboxWidget(props) {
   const _onChange = (event, data) => onChange && onChange(data.checked);
   const _onBlur = () => onBlur && onBlur(id, value);
   const _onFocus = () => onFocus && onFocus(id, value);
-  const checked = value == 'true' || value == true;
+  const checked = value === 'true' || value === true;
   return (
     <Form.Checkbox
       id={id}
