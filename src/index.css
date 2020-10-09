@@ -81,7 +81,8 @@ h5.ui.header {
   top: -2.5rem;
 }
 
-.ui.input > input {
+.ui.input > input,
+textarea {
   font-family: IcoFont, Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif !important;
 }
 
