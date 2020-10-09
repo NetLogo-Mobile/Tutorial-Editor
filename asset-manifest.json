@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/Tutorial-Editor/static/css/main.838152bd.chunk.css",
+    "main.css": "/Tutorial-Editor/static/css/main.6038a857.chunk.css",
     "main.js": "/Tutorial-Editor/static/js/main.87687406.chunk.js",
     "main.js.map": "/Tutorial-Editor/static/js/main.87687406.chunk.js.map",
     "runtime-main.js": "/Tutorial-Editor/static/js/runtime-main.8d25cac9.js",
@@ -9,10 +9,10 @@
     "static/js/2.65d63243.chunk.js": "/Tutorial-Editor/static/js/2.65d63243.chunk.js",
     "static/js/2.65d63243.chunk.js.map": "/Tutorial-Editor/static/js/2.65d63243.chunk.js.map",
     "index.html": "/Tutorial-Editor/index.html",
-    "precache-manifest.bf60984def97902595f0087e84ab23f2.js": "/Tutorial-Editor/precache-manifest.bf60984def97902595f0087e84ab23f2.js",
+    "precache-manifest.d61f4c3d6d4c4658429c6c9f691ce4fe.js": "/Tutorial-Editor/precache-manifest.d61f4c3d6d4c4658429c6c9f691ce4fe.js",
     "service-worker.js": "/Tutorial-Editor/service-worker.js",
     "static/css/2.291e393b.chunk.css.map": "/Tutorial-Editor/static/css/2.291e393b.chunk.css.map",
-    "static/css/main.838152bd.chunk.css.map": "/Tutorial-Editor/static/css/main.838152bd.chunk.css.map",
+    "static/css/main.6038a857.chunk.css.map": "/Tutorial-Editor/static/css/main.6038a857.chunk.css.map",
     "static/js/2.65d63243.chunk.js.LICENSE.txt": "/Tutorial-Editor/static/js/2.65d63243.chunk.js.LICENSE.txt",
     "static/media/semantic.min.css": "/Tutorial-Editor/static/media/outline-icons.ef60a4f6.woff"
   },
@@ -20,7 +20,7 @@
     "static/js/runtime-main.8d25cac9.js",
     "static/css/2.291e393b.chunk.css",
     "static/js/2.65d63243.chunk.js",
-    "static/css/main.838152bd.chunk.css",
+    "static/css/main.6038a857.chunk.css",
     "static/js/main.87687406.chunk.js"
   ]
 }
