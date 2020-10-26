@@ -47,7 +47,7 @@ h5.ui.header {
 
 .ui.menu.fluid,
 .ui.vertical.menu.fluid {
-  max-height: calc(100vh - 100px);
+  max-height: calc(100vh - 160px);
   overflow: auto;
 }
 
