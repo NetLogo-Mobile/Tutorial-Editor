@@ -133,6 +133,25 @@ function DefaultArrayItem(props) {
                     />
                   )}
 
+                  {props.canAdd && fieldTitle === 'Dialog' && (
+                    <Popup
+                      content={`Copy ${fieldTitle}`}
+                      trigger={
+                        <Button
+                          icon="copy"
+                          className="array-item-add"
+                          tabIndex="-1"
+                          color={pickColor(fieldTitle)}
+                          disabled={props.disabled || props.readOnly}
+                          onClick={props.onAddIndexClick(props.index + 1)}
+                          style={{ marginBottom: '8px' }}
+                        />
+                      }
+                      position="top right"
+                      size="tiny"
+                    />
+                  )}
+
                   {(props.hasMoveUp || props.hasMoveDown) && (
                     <Popup
                       content={`Move up`}

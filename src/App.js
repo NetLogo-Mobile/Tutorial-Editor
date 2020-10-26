@@ -107,8 +107,37 @@ function App() {
     setTutorialData(formData);
   };
 
-  const validateForm = () => {
-    
+  const hasDuplicates = (array) => {
+    return new Set(array).size !== array.length;
+  };
+
+  const validateForm = (id) => {
+    const changedName = /root_.*Name/i.test(id);
+    if (!changedName) {
+      return;
+    }
+    let existedNames;
+    if (id.includes('Sections')) {
+      existedNames = tutorialData.Sections.map((section) => section.Name);
+    } else {
+      existedNames = tutorialData.Dialogs.map((dialog) => dialog.Name);
+    }
+    if (hasDuplicates(existedNames)) {
+      const index = parseInt(id.split('_')[2], 10);
+      const name = document.querySelector(`input#${id}`).value;
+      const tutorialDataCopy = JSON.parse(JSON.stringify(tutorialData));
+      let copyVersion = 1;
+      while (existedNames.includes(`${name}-${copyVersion}`)) {
+        copyVersion += 1;
+      }
+      if (id.includes('Sections')) {
+        tutorialDataCopy.Sections[index].Name = `${name}-${copyVersion}`;
+      } else {
+        tutorialDataCopy.Dialogs[index].Name = `${name}-${copyVersion}`;
+      }
+      setTutorialData(tutorialDataCopy);
+      document.querySelector(`input#${id}`).value = `${name}-${copyVersion}`;
+    }
   };
 
   const closeModel = () => {
@@ -181,7 +210,7 @@ function App() {
                 formData={tutorialData}
                 onSubmit={downloadFormData}
                 onChange={onFormChange}
-                onFocus={validateForm}
+                onBlur={validateForm}
                 ObjectFieldTemplate={ObjectTemplate}
                 ArrayFieldTemplate={ArrayTemplate}
                 widgets={widgets}
@@ -233,6 +262,7 @@ function App() {
                               onChange={onChangeDialogCheckbox}
                               label={`${dialog.Name}`}
                               dialogName={`${dialog.Name}`}
+                              style={{ display: 'block', marginBottom: '10px' }}
                             />
                           );
                         })
