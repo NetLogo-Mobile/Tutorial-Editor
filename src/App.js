@@ -1,5 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Container, Dropdown, Grid } from 'semantic-ui-react';
+import {
+  Button,
+  Container,
+  Dropdown,
+  Grid,
+  Modal,
+  Header,
+  Checkbox,
+} from 'semantic-ui-react';
 import $ from 'jquery';
 import Form from '@rjsf/semantic-ui';
 import TutorialMenu from './components/TutorialMenu';
@@ -15,6 +23,10 @@ function App() {
   const [tutorialData, setTutorialData] = useState({});
   const [fileUpload, setFileUpload] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [open, setOpen] = React.useState(false);
+
+  const [generatedSection, setGeneratedSection] = React.useState({});
+  const [selectedDialogs, setSelectedDialogs] = React.useState([]);
 
   const widgets = {
     codeMirror: CodeMirrorWidget,
@@ -115,6 +127,62 @@ function App() {
     setTutorialData(formData);
   };
 
+  const validateForm = () => {
+    
+  };
+
+  const closeModel = () => {
+    setOpen(false);
+    setSelectedDialogs([]);
+    setGeneratedSection({});
+  };
+
+  const generateSection = () => {
+    setOpen(false);
+
+    const tutorialDataCopy = JSON.parse(JSON.stringify(tutorialData));
+    if (tutorialDataCopy.Sections) {
+      tutorialDataCopy.Sections = tutorialData.Sections.concat(
+        generatedSection,
+      );
+      setTutorialData(tutorialDataCopy);
+    } else {
+      tutorialDataCopy.Sections = [generatedSection];
+    }
+    setTutorialData(tutorialDataCopy);
+    setSelectedDialogs([]);
+  };
+
+  React.useEffect(() => {
+    if (selectedDialogs.length === 0) {
+      setGeneratedSection({});
+    } else {
+      setGeneratedSection({
+        Name: selectedDialogs[0],
+        Activated: false,
+        Initializer: `tutorial:show-dialog ${selectedDialogs[0]}`,
+        Finalizer: selectedDialogs
+          .map((dialog) => {
+            return `tutorial:hide-dialog ${dialog}`;
+          })
+          .join('\n'),
+      });
+    }
+  }, [selectedDialogs]);
+
+  const onChangeDialogCheckbox = (event, data) => {
+    const { dialogName } = data;
+    if (data.checked === false) {
+      setSelectedDialogs(
+        selectedDialogs.filter((value) => {
+          return value !== dialogName;
+        }),
+      );
+    } else {
+      setSelectedDialogs(selectedDialogs.concat(dialogName));
+    }
+  };
+
   return (
     <Container>
       <Grid columns="2">
@@ -133,6 +201,7 @@ function App() {
                 formData={tutorialData}
                 onSubmit={downloadFormData}
                 onChange={onFormChange}
+                onFocus={validateForm}
                 ObjectFieldTemplate={ObjectTemplate}
                 ArrayFieldTemplate={ArrayTemplate}
                 widgets={widgets}
@@ -163,6 +232,46 @@ function App() {
                   Save
                 </Button>
               </Button.Group>
+              <Modal
+                onClose={closeModel}
+                onOpen={() => setOpen(true)}
+                open={open}
+                trigger={
+                  <Button fluid style={{ marginTop: '16px' }}>
+                    Add dialog-related Section
+                  </Button>
+                }
+              >
+                <Modal.Header>Generate Dialog-related Section</Modal.Header>
+                <Modal.Content image>
+                  <Modal.Description>
+                    <Header>Dialog List</Header>
+                    {tutorialData.Dialogs
+                      ? tutorialData.Dialogs.map((dialog) => {
+                          return (
+                            <Checkbox
+                              onChange={onChangeDialogCheckbox}
+                              label={`${dialog.Name}`}
+                              dialogName={`${dialog.Name}`}
+                            />
+                          );
+                        })
+                      : null}
+                  </Modal.Description>
+                </Modal.Content>
+                <Modal.Actions>
+                  <Button color="black" onClick={closeModel}>
+                    Cancel
+                  </Button>
+                  <Button
+                    content="Generate Section"
+                    labelPosition="right"
+                    icon="checkmark"
+                    onClick={generateSection}
+                    positive
+                  />
+                </Modal.Actions>
+              </Modal>
               <TutorialMenu
                 tutorial={tutorialData}
                 setTutorial={setTutorialData}
