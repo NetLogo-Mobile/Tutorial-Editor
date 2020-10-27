@@ -96,6 +96,10 @@ function DefaultArrayItem(props) {
     }, 0);
   };
 
+  const onCopyIndexClick = () => {
+    window.changeTutorial(props.index);
+  };
+
   return (
     <div className="array-item" key={props.key}>
       <MaybeWrap wrap={props.wrapItem} component={Segment}>
@@ -143,7 +147,7 @@ function DefaultArrayItem(props) {
                           tabIndex="-1"
                           color={pickColor(fieldTitle)}
                           disabled={props.disabled || props.readOnly}
-                          onClick={props.onAddIndexClick(props.index + 1)}
+                          onClick={onCopyIndexClick}
                           style={{ marginBottom: '8px' }}
                         />
                       }
