@@ -220,6 +220,12 @@ function App() {
   };
 
   window.changeTutorial = changeTutorial;
+  $(function () {
+    $('input,textarea,div[contenteditable=true]').attr(
+      'data-gramm_editor',
+      'false',
+    );
+  });
 
   return (
     <Container>
