@@ -149,25 +149,51 @@ function App() {
   const generateSection = () => {
     setOpen(false);
 
+    if (!generatedSection.Name) {
+      return;
+    }
+
     const tutorialDataCopy = JSON.parse(JSON.stringify(tutorialData));
+    let name = generatedSection.Name;
+    const existedNames = tutorialData.Sections.map((section) => section.Name);
+    if (existedNames.includes(name)) {
+      let copyVersion = 1;
+      while (existedNames.includes(`${name}-${copyVersion}`)) {
+        copyVersion += 1;
+      }
+      name = `${name}-${copyVersion}`;
+    }
+    const generatedSectionCopy = JSON.parse(JSON.stringify(generatedSection));
+    generatedSectionCopy.Name = name;
     if (tutorialDataCopy.Sections) {
       tutorialDataCopy.Sections = tutorialData.Sections.concat(
-        generatedSection,
+        generatedSectionCopy,
       );
       setTutorialData(tutorialDataCopy);
     } else {
-      tutorialDataCopy.Sections = [generatedSection];
+      tutorialDataCopy.Sections = [generatedSectionCopy];
     }
     setTutorialData(tutorialDataCopy);
     setSelectedDialogs([]);
+    setTimeout(() => {
+      const id = `root_Sections_${tutorialData.Sections.length}_Name`;
+      const $anchor = document.getElementById(id);
+      const offsetTop =
+        $anchor.getBoundingClientRect().top + window.pageYOffset;
+      window.scroll({
+        top: offsetTop,
+        behavior: 'smooth',
+      });
+    }, 0);
   };
 
   React.useEffect(() => {
     if (selectedDialogs.length === 0) {
       setGeneratedSection({});
     } else {
+      const name = selectedDialogs[0];
       setGeneratedSection({
-        Name: selectedDialogs[0],
+        Name: name,
         Activated: false,
         Initializer: `tutorial:show-dialog ${selectedDialogs[0]} false`,
         Finalizer: selectedDialogs
