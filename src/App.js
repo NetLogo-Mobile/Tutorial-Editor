@@ -169,7 +169,7 @@ function App() {
       setGeneratedSection({
         Name: selectedDialogs[0],
         Activated: false,
-        Initializer: `tutorial:show-dialog ${selectedDialogs[0]}`,
+        Initializer: `tutorial:show-dialog ${selectedDialogs[0]} false`,
         Finalizer: selectedDialogs
           .map((dialog) => {
             return `tutorial:hide-dialog ${dialog}`;
