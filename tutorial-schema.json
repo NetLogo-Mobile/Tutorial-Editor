@@ -180,6 +180,19 @@
                   "default": 1
                 }
               }
+            },
+            {
+              "properties": {
+                "Type": { "enum": [4] },
+                "TargetType": {
+                  "$ref": "#/definitions/TargetType",
+                  "default": 0
+                },
+                "Target": {
+                  "type": "string"
+                }
+              },
+              "required": ["Target"]
             }
           ]
         }
@@ -187,13 +200,18 @@
     },
     "DialogType": {
       "type": "number",
-      "enum": [0, 1, 2, 3],
-      "enumNames": ["Message", "Prompt", "Dialog", "Question"]
+      "enum": [0, 1, 2, 3, 4],
+      "enumNames": ["Message", "Prompt", "Dialog", "Question", "Help"]
     },
     "AnchorType": {
       "type": "number",
       "enum": [0, 1, 2, 3],
       "enumNames": ["Spotlight", "Center", "Bottom", "Top"]
+    },
+    "TargetType": {
+      "type": "number",
+      "enum": [0, 1],
+      "enumNames": ["Widget", "Plot"]
     },
     "Spotlight": {
       "type": "object",

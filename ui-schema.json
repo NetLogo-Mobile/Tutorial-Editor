@@ -1,5 +1,5 @@
 {
-  "ui:title": "Tutorial Editor",
+  "ui:title": "Interaction Editor for Turtle Universe",
   "Sections": {
     "ui:children": "Section",
     "items": {
@@ -304,6 +304,26 @@
             "semantic": {
               "inline": true
             }
+          }
+        }
+      },
+      "TargetType": {
+        "widget": "SelectWidget",
+        "ui:options": {
+          "semantic": {
+            "label": "Help for",
+            "inline": true,
+            "selection": true,
+            "header": "Which part of the interface do you want to provide help with",
+            "placeholder": "Which part of the interface do you want to provide help with"
+          }
+        }
+      },
+      "Target": {
+        "ui:options": {
+          "semantic": {
+            "inline": true,
+            "placeholder": "Name of the target interface component."
           }
         }
       },
