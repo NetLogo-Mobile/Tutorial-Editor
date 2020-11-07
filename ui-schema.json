@@ -320,10 +320,12 @@
         }
       },
       "Target": {
+        "ui:widget": "textarea",
         "ui:options": {
+          "rows": 2,
+          "placeholder": "Name of the target interface component. Each line for one target.",
           "semantic": {
-            "inline": true,
-            "placeholder": "Name of the target interface component."
+            "inline": true
           }
         }
       },
