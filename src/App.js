@@ -83,6 +83,7 @@ function App() {
       setFileUpload(file);
     };
     reader.readAsText(file);
+    $('input[type=file]').value = '';
   };
 
   const uploadSample = () => {
