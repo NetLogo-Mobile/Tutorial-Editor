@@ -210,8 +210,8 @@
     },
     "TargetType": {
       "type": "number",
-      "enum": [0, 1, 2],
-      "enumNames": ["Widget", "Plot", "NetTango"]
+      "enum": [0, 1, 2, 3],
+      "enumNames": ["Widget", "WidgetGroup", "Plot", "NetTango"]
     },
     "Spotlight": {
       "type": "object",
