@@ -200,8 +200,8 @@
     },
     "DialogType": {
       "type": "number",
-      "enum": [0, 1, 2, 3, 4],
-      "enumNames": ["Message", "Prompt", "Dialog", "Question", "Help"]
+      "enum": [0, 1, 2, 4, 5],
+      "enumNames": ["Message", "Prompt", "Dialog", "Help", "Task"]
     },
     "AnchorType": {
       "type": "number",
@@ -266,8 +266,8 @@
     },
     "ButtonStyle": {
       "type": "number",
-      "enum": [0, 1, 2, 3],
-      "enumNames": ["Standard", "Secondary", "Option", "Default"]
+      "enum": [0, 1, 2],
+      "enumNames": ["Standard", "Secondary", "Option"]
     },
     "ButtonBehavior": {
       "type": "number",
