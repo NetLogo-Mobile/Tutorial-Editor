@@ -156,7 +156,7 @@
             },
             {
               "properties": {
-                "Type": { "enum": [2] },
+                "Type": { "enum": [2, 5] },
                 "Input": {
                   "type": "string"
                 },
