@@ -68,7 +68,8 @@ function App() {
     download.remove();
   };
 
-  const onFileChange = ({ target: { files } }) => {
+  const onFileChange = (event) => {
+    const { files } = event.target;
     if (files.length === 0) {
       return;
     }
@@ -77,13 +78,13 @@ function App() {
     const file = files[0];
     const reader = new FileReader();
 
-    reader.onload = (event) => {
-      const json = JSON.parse(event.target.result);
+    reader.onload = (e) => {
+      const json = JSON.parse(e.target.result);
       setTutorialData(json);
       setFileUpload(file);
     };
     reader.readAsText(file);
-    $('input[type=file]').value = '';
+    event.target.value = '';
   };
 
   const uploadSample = () => {
