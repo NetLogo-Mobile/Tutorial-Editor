@@ -134,34 +134,7 @@ function App() {
     }
   };
 
-  const changeTutorial = (index) => {
-    const tutorialDataCopy = JSON.parse(JSON.stringify(tutorialData));
-    const DialogCopy = JSON.parse(
-      JSON.stringify(tutorialDataCopy.Dialogs[index]),
-    );
-    const existedNames = tutorialData.Dialogs.map((dialog) => dialog.Name);
-    let copyVersion = 1;
-    const name = document.querySelector(`input#root_Dialogs_${index}_Name`)
-      .value;
-    while (existedNames.includes(`${name}-${copyVersion}`)) {
-      copyVersion += 1;
-    }
-    DialogCopy.Name = `${tutorialDataCopy.Dialogs[index].Name}-${copyVersion}`;
-    tutorialDataCopy.Dialogs.splice(index + 1, 0, DialogCopy);
-    setTutorialData(tutorialDataCopy);
-    setTimeout(() => {
-      const id = `root_Dialogs_${index + 1}_Name`;
-      const $anchor = document.getElementById(id);
-      const offsetTop =
-        $anchor.getBoundingClientRect().top + window.pageYOffset;
-      window.scroll({
-        top: offsetTop,
-        behavior: 'smooth',
-      });
-    }, 0);
-  };
-
-  window.changeTutorial = changeTutorial;
+  // Turn off grammar correction in `input`, `textarea` and `contenteditable div`
   $(function () {
     $('input,textarea,div[contenteditable=true]').attr(
       'data-gramm_editor',
