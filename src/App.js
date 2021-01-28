@@ -157,6 +157,7 @@ function App() {
 
     const tutorialDataCopy = JSON.parse(JSON.stringify(tutorialData));
     let name = generatedSection.Name;
+    tutorialData.Sections = tutorialData.Sections ?? [];
     const existedNames = tutorialData.Sections.map((section) => section.Name);
     if (existedNames.includes(name)) {
       let copyVersion = 1;
