@@ -242,7 +242,7 @@ require('codemirror/addon/mode/simple.js');
     'tutorial:activate',
     'tutorial:survey',
     'tutorial:deactivate',
-    'tutorial:activated?',
+    'tutorial:is-activated?',
     'tutorial:back',
     'tutorial:forward',
     'tutorial:go',
