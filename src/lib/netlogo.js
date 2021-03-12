@@ -282,6 +282,8 @@ require('codemirror/addon/mode/simple.js');
     'nettango:show-blocks-except',
     'nettango:hide-blocks',
     'nettango:hide-blocks-except',
+    'nettango:highlight-blocks',
+    'nettango:highlight-blocks-except',
     'nettango:switch-program',
   ];
 
