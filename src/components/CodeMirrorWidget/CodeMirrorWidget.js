@@ -94,11 +94,9 @@ const CodeMirrorWidget = (props) => {
 
   const onClick = () => {
     setReadOnly(false);
-    console.log('click');
   };
 
   const onBlur = () => {
-    console.log('onBlur');
     setReadOnly(true);
   };
 
@@ -109,8 +107,9 @@ const CodeMirrorWidget = (props) => {
         {readOnly ? (
           <MirrorLight
             codeMirror={CodeMirror}
+            className="editor-preview"
             theme="netlogo-default"
-            value={value || ''}
+            value={value || '\n'}
             language="netlogo"
           />
         ) : (
@@ -128,6 +127,7 @@ const CodeMirrorWidget = (props) => {
               viewportMargin: Infinity,
               extraKeys: { 'Ctrl-Space': 'autocomplete' },
               placeholder: placeholder,
+              autofocus: true,
             }}
             onBeforeChange={(editor, data, value) => {
               _onChange(value);

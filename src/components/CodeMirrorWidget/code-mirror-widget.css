@@ -7,3 +7,11 @@
 .CodeMirror pre.CodeMirror-placeholder {
   color: #999;
 }
+
+.editor-preview {
+  font-size: 13px;
+  border: 1px solid rgba(34, 36, 38, 0.15);
+  padding: 2px 16px;
+  border-radius: 0.28571429rem;
+  overflow: auto;
+}
