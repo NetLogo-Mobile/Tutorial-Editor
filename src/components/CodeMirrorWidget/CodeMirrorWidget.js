@@ -77,7 +77,7 @@ class MirrorLight extends React.Component {
       </code>
     );
 
-    if (value == '') {
+    if (value === '') {
       return (
         <div class="CodeMirror-lines" role="presentation">
           <div role="presentation">
