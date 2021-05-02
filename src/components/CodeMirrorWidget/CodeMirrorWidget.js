@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Form } from 'semantic-ui-react';
 import 'codemirror/addon/selection/active-line';
@@ -43,6 +43,7 @@ class MirrorLight extends React.Component {
       className,
       prefix,
       theme,
+      placeholder,
     } = this.props;
     const elements = [];
     let index = 0;
@@ -76,6 +77,18 @@ class MirrorLight extends React.Component {
       </code>
     );
 
+    if (value == '') {
+      return (
+        <div class="CodeMirror-lines" role="presentation">
+          <div role="presentation">
+            <pre class="CodeMirror-placeholder CodeMirror-line-like">
+              {placeholder}
+            </pre>
+          </div>
+        </div>
+      );
+    }
+
     return inline ? (
       code
     ) : (
@@ -87,6 +100,8 @@ class MirrorLight extends React.Component {
 const CodeMirrorWidget = (props) => {
   const { placeholder, options, onChange, required, value, label } = props;
   const [readOnly, setReadOnly] = useState(true);
+  const [countDown, setCountDown] = useState(15);
+  const [startCount, setStartCount] = useState(false);
 
   const _onChange = (value) => {
     onChange && onChange(value === '' ? options.emptyValue : value);
@@ -97,7 +112,28 @@ const CodeMirrorWidget = (props) => {
   };
 
   const onBlur = () => {
-    setReadOnly(true);
+    setStartCount(true);
+  };
+
+  useEffect(() => {
+    if (!startCount) {
+      return;
+    }
+
+    let interval = setInterval(() => {
+      if (countDown > 0) {
+        setCountDown(countDown - 1);
+      } else {
+        setReadOnly(true);
+      }
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [startCount, countDown]);
+
+  const onFocus = () => {
+    setCountDown(15);
+    setStartCount(false);
   };
 
   return (
@@ -109,7 +145,8 @@ const CodeMirrorWidget = (props) => {
             codeMirror={CodeMirror}
             className="editor-preview"
             theme="netlogo-default"
-            value={value || '\n'}
+            value={value || ''}
+            placeholder={placeholder}
             language="netlogo"
           />
         ) : (
@@ -139,6 +176,7 @@ const CodeMirrorWidget = (props) => {
                 });
               }
             }}
+            onFocus={onFocus}
           />
         )}
       </Form.Field>

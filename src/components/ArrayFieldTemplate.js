@@ -137,7 +137,9 @@ function DefaultArrayItem(props) {
                     />
                   )}
 
-                  {props.canAdd && fieldTitle === 'Dialog' && (
+                  {((props.canAdd && fieldTitle === 'Dialog') ||
+                    'Section' ||
+                    'Button') && (
                     <Popup
                       content={`Copy ${fieldTitle}`}
                       trigger={
