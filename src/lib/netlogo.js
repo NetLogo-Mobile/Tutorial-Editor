@@ -287,6 +287,15 @@ require('codemirror/addon/mode/simple.js');
     'nettango:highlight-blocks',
     'nettango:highlight-blocks-except',
     'nettango:switch-program',
+    'sensor:bind-gesture',
+    'sensor:unbind-gesture',
+    'sensor:open',
+    'sensor:close',
+    'sensor:on-change',
+    'sensor:read-number',
+    'sensor:read-vector',
+    'sensor:is-available?',
+    'sensor:set-warning',
   ];
 
   extensions = ['tutorial', 'widget', 'workspace', 'plot'];
