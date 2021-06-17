@@ -7,3 +7,24 @@
 .CodeMirror pre.CodeMirror-placeholder {
   color: #999;
 }
+
+.editor-preview {
+  font-family: 'IcoFont', source-code-pro, Menlo, Monaco, Consolas,
+    'Courier New', Courier, monospace;
+  font-size: 13px;
+  border: 1px solid rgba(34, 36, 38, 0.15);
+  padding: 2px 16px;
+  border-radius: 0.28571429rem;
+  overflow: auto;
+}
+
+.CodeMirror-placeholder.CodeMirror-line-like {
+  font-family: 'IcoFont', source-code-pro, Menlo, Monaco, Consolas,
+    'Courier New', Courier, monospace;
+  font-size: 13px;
+  margin: 0;
+  color: #999;
+  border: 1px solid rgba(34, 36, 38, 0.15);
+  padding: 2px 16px;
+  border-radius: 0.28571429rem;
+}
