@@ -287,18 +287,44 @@ require('codemirror/addon/mode/simple.js');
     'nettango:highlight-blocks',
     'nettango:highlight-blocks-except',
     'nettango:switch-program',
+    'sound:play-drum',
+    'sound:play-note',
+    'sound:play-note-later',
+    'sound:start-note',
+    'sound:stop-note',
+    'sound:stop-instrument',
+    'sound:stop-music',
+    'tune:clear',
+    'tune:use',
+    'tune:tempo',
+    'tune:note',
+    'tune:rest',
+    'tune:loop',
+    'tune:once',
+    'tune:volume',
+    'tune:moveto',
+    'tune:rewind',
+    'tune:forward',
+    'tune:stop',
+    'sensor:clear',
     'sensor:bind-gesture',
     'sensor:unbind-gesture',
     'sensor:open',
     'sensor:close',
     'sensor:on-change',
-    'sensor:read-number',
-    'sensor:read-vector',
-    'sensor:is-available?',
     'sensor:set-warning',
   ];
 
-  extensions = ['tutorial', 'widget', 'workspace', 'plot'];
+  extensions = [
+    'tutorial',
+    'widget',
+    'plot',
+    'workspace',
+    'plot',
+    'sound',
+    'tune',
+    'sensor',
+  ];
 
   reporters = [
     '!=',
@@ -564,6 +590,14 @@ require('codemirror/addon/mode/simple.js');
     'world-width',
     'wrap-color',
     'xor',
+    'sound:drums',
+    'sound:instruments',
+    'tune:drums',
+    'tune:instruments',
+    'tune:who',
+    'sensor:read-number',
+    'sensor:read-vector',
+    'sensor:is-available?',
   ];
 
   turtleVars = [
