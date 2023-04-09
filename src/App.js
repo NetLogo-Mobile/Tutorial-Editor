@@ -109,8 +109,14 @@ function App() {
     setTutorialData(formData);
   };
 
-  const hasDuplicates = (array) => {
-    return new Set(array).size !== array.length;
+  const checkDuplicate = (names, id) => {
+    let count = 0;
+    names.forEach((item) => {
+      if (item === id) {
+        count += 1;
+      }
+    });
+    return count;
   };
 
   const validateForm = (id) => {
@@ -124,9 +130,9 @@ function App() {
     } else {
       existedNames = tutorialData.Dialogs.map((dialog) => dialog.Name);
     }
-    if (hasDuplicates(existedNames)) {
-      const index = parseInt(id.split('_')[2], 10);
-      const name = document.querySelector(`input#${id}`).value;
+    const index = parseInt(id.split('_')[2], 10);
+    const name = document.querySelector(`input#${id}`).value;
+    if (checkDuplicate(existedNames, name) > 1) {
       const tutorialDataCopy = JSON.parse(JSON.stringify(tutorialData));
       let copyVersion = 1;
       while (existedNames.includes(`${name}-${copyVersion}`)) {
@@ -249,7 +255,7 @@ function App() {
   };
 
   window.changeTutorial = changeTutorial;
-  $(function () {
+  $(() => {
     $('input,textarea,div[contenteditable=true]').attr(
       'data-gramm_editor',
       'false',

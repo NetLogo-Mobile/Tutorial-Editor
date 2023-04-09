@@ -34,7 +34,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "lint": "eslint .",
-    "format": "prettier --trailing-comma all --single-quote --write 'src/*' 'public/*.json'"
+    "format": "prettier --trailing-comma all --single-quote --write src/* public/*.json"
   },
   "eslintConfig": {
     "extends": "react-app"
